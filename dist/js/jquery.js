@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $("[data-toggle='tooltip']").tooltip();
+  // NOTE: tooltip-demo (no funciona)
+  $('[data-toggle="tooltip"]').tooltip();
 
   var url = "url('https://image.tmdb.org/t/p/original')";
   $('input#search').on('input', function() {

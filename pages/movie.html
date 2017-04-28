@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Peliculas</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+  <div ng-repeat="movie in movies" class="movieList col-xs-6 col-sm-6 col-md-4 col-lg-3">
+    <div ng-click="movieCtrl.movieSelect(movie.movieId)" class="thumbnail">
+      <img class="poster" src="../assets/poster.png" alt="{{movie.title}}" style="background-image: url('https://image.tmdb.org/t/p/original{{movie.poster_path}}');">
+      <div class="caption">
+        <a href="#" data-toggle="tooltip" data-placement="top" title="{{movie.title}}"><h4>{{movie.title}}</h4></a>
+        <h6 id="release_date" data-toggle="tooltip" data-placement="bottom" title="{{movie.release_date}}"><strong>Fecha de estreno:</strong> {{movie.release_date}}</h6>
+      </div>
+    </div>
+  </div>
+</div>

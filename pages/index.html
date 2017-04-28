@@ -17,11 +17,10 @@
   <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+  <link href="../dist/css/master.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body ng-controller="MovieController as movieCtrl">
@@ -151,25 +150,7 @@
       </div>
       <!-- /.navbar-static-side -->
     </nav>
-    <div id="page-wrapper">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="page-header">Peliculas</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-      </div>
-      <div class="row">
-        <div ng-repeat="movie in movies" class="movieList col-xs-6 col-sm-6 col-md-4 col-lg-3">
-          <div ng-click="movieCtrl.movieSelect(movie.movieId)" class="thumbnail">
-            <img class="poster" src="../assets/poster.png" alt="{{movie.title}}" style="background-image: url('https://image.tmdb.org/t/p/original{{movie.poster_path}}');">
-            <div class="caption">
-              <a href="#" data-toggle="tooltip" data-placement="top" title="{{movie.title}}"><h4>{{movie.title}}</h4></a>
-              <h6 id="release_date"><strong>Fecha de estreno:</strong> {{movie.release_date}}</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="page-wrapper" ng-view></div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
@@ -178,15 +159,15 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Angular -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
+    <!-- Angular -->
+    <script src="../vendor/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../dist/js/master.js"></script>
     <script src="../dist/js/ang.js"></script>
     <script src="../dist/js/jquery.js"></script>
 </body>
