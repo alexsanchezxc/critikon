@@ -1,6 +1,6 @@
 var app = angular.module("imdb", ["ngRoute"]);
 
-app.controller("MovieController", function($scope, $http) {
+app.controller("movieController", function($scope, $http) {
   var imgPath = "https://image.tmdb.org/t/p/w300/";
   this.movieSearch = "";
   this.formAction = function() {
@@ -21,9 +21,11 @@ app.controller("MovieController", function($scope, $http) {
 app.config(function($routeProvider) {
   $routeProvider
     .when("/", {
-      templateUrl: "index.html"
+      templateUrl: "../pages/index.html"
     })
     .when("/movie", {
-      templateUrl: "movie.html"
+      controller: "movieController",
+      controllerAs: "movieCtrl",
+      templateUrl: "../pages/movie.html"
     });
 });
