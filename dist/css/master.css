@@ -1,5 +1,5 @@
 body {
-  background-color: #f8f8f8;
+  background-color: rgb(38, 38, 38);
 }
 
 #wrapper {
@@ -9,7 +9,8 @@ body {
 #page-wrapper {
   padding: 0 15px;
   min-height: 568px;
-  background-color: white;
+  background-color: rgb(13, 13, 13);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
@@ -17,9 +18,12 @@ body {
     position: inherit;
     margin: 0 0 0 250px;
     padding: 0 30px;
-    border-left: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
   }
+}
+
+.navbar {
+  background-color: rgb(26, 26, 26);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-top-links {
@@ -48,7 +52,7 @@ body {
 }
 
 .navbar-top-links .dropdown-menu li a {
-  padding: 3px 20px;
+  padding: 5px 20px;
   min-height: 0;
 }
 
@@ -56,43 +60,15 @@ body {
   white-space: normal;
 }
 
-
-/* NOTE: ESTO SE PUEDE BORRAR EN UN FUTURO */
-
-.navbar-top-links .dropdown-messages, .navbar-top-links .dropdown-tasks, .navbar-top-links .dropdown-alerts {
-  width: 310px;
-  min-width: 0;
-}
-
-
-/* NOTE: ESTO SE PUEDE BORRAR EN UN FUTURO */
-
-.navbar-top-links .dropdown-messages {
-  margin-left: 5px;
-}
-
-
-/* NOTE: ESTO SE PUEDE BORRAR EN UN FUTURO */
-
-.navbar-top-links .dropdown-tasks {
-  margin-left: -59px;
-}
-
-
-/* NOTE: ESTO SE PUEDE BORRAR EN UN FUTURO */
-
-.navbar-top-links .dropdown-alerts {
-  margin-left: -123px;
-}
-
 .navbar-top-links .dropdown-user {
   left: auto;
 }
 
-.dropdown-search {
-  position: absolute;
-  margin-left: 53px;
-  margin-top: -50px;
+
+/* NOTE: NEON SUPERIOR Nº2 */
+
+.sidebar {
+  box-shadow: inset 0 15px 15px -15px rgba(0, 153, 255, 1);
 }
 
 .sidebar .sidebar-nav.navbar-collapse {
@@ -104,12 +80,43 @@ body {
   padding: 15px;
 }
 
+
+/* NOTE: NEON INFERIOR Nº2 */
+
+.sidebar ul {
+  box-shadow: 0 2px 2px -2px rgba(0, 153, 255, 0.50), 0 3px 3px -3px rgba(0, 153, 255, 0.50), 0 4px 4px -4px rgba(0, 153, 255, 0.50), 0 5px 5px -5px rgba(0, 153, 255, 0.50), 0 15px 15px -15px rgba(0, 153, 255, 0.50);
+  text-shadow: 0 0 15px rgba(0, 153, 255, 1);
+}
+
+.sidebar a {
+  color: rgba(0, 153, 255, 1);
+}
+
+
+/* NOTE: NEON SUPERIOR Nº1 */
+
+.sidebar ul div {
+  border-left: none;
+  box-shadow: 0 -2px 2px -2px rgba(0, 153, 255, 0.50), 0 -3px 3px -3px rgba(0, 153, 255, 0.50), 0 -4px 4px -4px rgba(0, 153, 255, 0.50), 0 -5px 5px -5px rgba(0, 153, 255, 0.50), 0 -15px 15px -15px rgba(0, 153, 255, 0.50);
+}
+
+
+/* NOTE: NEON INFERIOR Nº1 */
+
+.sidebar ul div li:last-child {
+  box-shadow: inherit;
+}
+
+.sidebar ul li:last-child {
+  box-shadow: inset 0 -15px 15px -15px rgba(0, 153, 255, 1);
+}
+
 .sidebar ul li {
-  border-bottom: 1px solid #e7e7e7;
+  box-shadow: -15px 0 5px -15px rgba(0, 153, 255, 1);
 }
 
 .sidebar ul li a.active {
-  background-color: #eeeeee;
+  background-color: rgb(13, 13, 13);
 }
 
 .sidebar .arrow {
@@ -160,6 +167,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .caption h4 {
   white-space: nowrap;
   overflow: hidden;
