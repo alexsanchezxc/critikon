@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(38, 38, 38);
+  background-color: rgb(26, 26, 26);
 }
 
 #wrapper {
@@ -26,6 +26,10 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
+.navbar a {
+  color: rgb(0, 153, 255);
+}
+
 .navbar-top-links {
   margin-right: 0;
 }
@@ -43,8 +47,21 @@ body {
   min-height: 50px;
 }
 
+.nav>li>a:focus, .nav>li>a:hover {
+  background-color: rgb(38, 38, 38);
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+  background-color: rgb(38, 38, 38);
+  border-color: inherit;
+}
+
 .navbar-top-links .dropdown-menu li {
   display: block;
+}
+
+.navbar-top-links .dropdown-menu .open {
+  background-color: inherit;
 }
 
 .navbar-top-links .dropdown-menu li:last-child {
@@ -68,7 +85,8 @@ body {
 /* NOTE: NEON SUPERIOR Nº2 */
 
 .sidebar {
-  box-shadow: inset 0 15px 15px -15px rgba(0, 153, 255, 1);
+  box-shadow: inset 0 15px 15px -15px rgb(0, 153, 255);
+  border-radius: 2px;
 }
 
 .sidebar .sidebar-nav.navbar-collapse {
@@ -80,16 +98,8 @@ body {
   padding: 15px;
 }
 
-
-/* NOTE: NEON INFERIOR Nº2 */
-
-.sidebar ul {
-  box-shadow: 0 2px 2px -2px rgba(0, 153, 255, 0.50), 0 3px 3px -3px rgba(0, 153, 255, 0.50), 0 4px 4px -4px rgba(0, 153, 255, 0.50), 0 5px 5px -5px rgba(0, 153, 255, 0.50), 0 15px 15px -15px rgba(0, 153, 255, 0.50);
-  text-shadow: 0 0 15px rgba(0, 153, 255, 1);
-}
-
 .sidebar a {
-  color: rgba(0, 153, 255, 1);
+  color: rgb(0, 153, 255);
 }
 
 
@@ -97,26 +107,21 @@ body {
 
 .sidebar ul div {
   border-left: none;
-  box-shadow: 0 -2px 2px -2px rgba(0, 153, 255, 0.50), 0 -3px 3px -3px rgba(0, 153, 255, 0.50), 0 -4px 4px -4px rgba(0, 153, 255, 0.50), 0 -5px 5px -5px rgba(0, 153, 255, 0.50), 0 -15px 15px -15px rgba(0, 153, 255, 0.50);
+  box-shadow: 0 -2px 2px -2px rgb(0, 153, 255), 0 -3px 3px -3px rgb(0, 153, 255), 0 -4px 4px -4px rgb(0, 153, 255), 0 -5px 5px -5px rgb(0, 153, 255), 0 -15px 15px -15px rgb(0, 153, 255);
 }
-
-
-/* NOTE: NEON INFERIOR Nº1 */
 
 .sidebar ul div li:last-child {
   box-shadow: inherit;
 }
 
-.sidebar ul li:last-child {
-  box-shadow: inset 0 -15px 15px -15px rgba(0, 153, 255, 1);
+.sidebar li a.active, .sidebar li a:hover {
+  font-weight: bold;
+  background-color: rgb(38, 38, 38);
 }
 
-.sidebar ul li {
-  box-shadow: -15px 0 5px -15px rgba(0, 153, 255, 1);
-}
-
-.sidebar ul li a.active {
-  background-color: rgb(13, 13, 13);
+.sidebar li a:focus {
+  background-color: inherit;
+  font-weight: inherit;
 }
 
 .sidebar .arrow {
@@ -155,11 +160,30 @@ body {
   }
 }
 
+.page-header {
+  color: rgb(0, 153, 255);
+  text-shadow: 0 0 10px black;
+  box-shadow: 0 2px 2px -2px rgb(0, 153, 255), 0 3px 3px -3px rgb(0, 153, 255), 0 4px 4px -4px rgb(0, 153, 255), 0 5px 5px -5px rgb(0, 153, 255), 0 15px 15px -15px rgb(0, 153, 255);
+  border-bottom: inherit;
+  padding-bottom: inherit;
+  padding: 1%;
+}
+
+.thumbnail {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+}
+
 .poster {
   width: 100%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 5px;
+  box-shadow: 0 0 5px black;
+  border: 1px solid rgba(0, 0, 0, 0.75);
 }
 
 .caption {
@@ -169,10 +193,21 @@ body {
 }
 
 .caption h4 {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.caption h6 {
+  color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
+.caption a {
+  color: rgb(0, 153, 255);
+  text-decoration: none;
+}
+
+.caption a:hover {}
 
 .btn-outline {
   color: inherit;
