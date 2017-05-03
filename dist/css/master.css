@@ -47,15 +47,6 @@ body {
   min-height: 50px;
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
-  background-color: rgb(38, 38, 38);
-}
-
-.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
-  background-color: rgb(38, 38, 38);
-  border-color: inherit;
-}
-
 .navbar-top-links .dropdown-menu li {
   display: block;
 }
@@ -79,6 +70,44 @@ body {
 
 .navbar-top-links .dropdown-user {
   left: auto;
+}
+
+
+/* NOTE: Color Critikon */
+
+.navbar-inverse .navbar-brand {
+  color: rgb(0, 153, 255);
+}
+
+.navbar-inverse .navbar-toggle {
+  border: 0;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border: 0;
+  border-color: inherit;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+  background-color: rgb(38, 38, 38);
+}
+
+.navbar-collapse {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar-collapse.in {
+  overflow-y: inherit;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+  background-color: rgb(38, 38, 38);
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+  background-color: rgb(38, 38, 38);
+  border-color: inherit;
 }
 
 
@@ -181,9 +210,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 5px;
   box-shadow: 0 0 5px black;
-  border: 1px solid rgba(0, 0, 0, 0.75);
 }
 
 .caption {
