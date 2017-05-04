@@ -192,7 +192,7 @@ body {
 .page-header {
   color: rgb(0, 153, 255);
   text-shadow: 0 0 10px black;
-  box-shadow: 0 2px 2px -2px rgb(0, 153, 255), 0 3px 3px -3px rgb(0, 153, 255), 0 4px 4px -4px rgb(0, 153, 255), 0 5px 5px -5px rgb(0, 153, 255), 0 15px 15px -15px rgb(0, 153, 255);
+  box-shadow: 0 5px 5px -5px rgb(0, 153, 255), 0 15px 15px -15px rgb(0, 153, 255);
   border-bottom: inherit;
   padding-bottom: inherit;
   padding: 1%;
