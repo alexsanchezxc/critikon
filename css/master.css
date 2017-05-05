@@ -134,7 +134,7 @@ body {
 
 /* NOTE: NEON SUPERIOR Nº1 */
 
-.sidebar ul div {
+.sidebar ul:first-child {
   border-left: none;
   box-shadow: 0 -2px 2px -2px rgb(0, 153, 255), 0 -3px 3px -3px rgb(0, 153, 255), 0 -4px 4px -4px rgb(0, 153, 255), 0 -5px 5px -5px rgb(0, 153, 255), 0 -15px 15px -15px rgb(0, 153, 255);
 }
@@ -203,6 +203,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.75);
   border-radius: 5px;
   box-shadow: 0 0 10px black;
+  cursor: pointer;
 }
 
 .poster {

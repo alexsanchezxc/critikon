@@ -57,19 +57,17 @@
       <div class="sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
           <ul class="nav" id="side-menu">
-            <div>
-              <li class="sidebar-search">
-                <form ng-submit="movieCtrl.formAction()" class="input-group custom-search-form">
-                  <input id="search" type="text" class="form-control" placeholder="Buscar pelicula..." ng-keypress="movieCtrl.formAction()" ng-model="movieCtrl.movieSearch">
-                  <span class="input-group-btn">
+            <li class="sidebar-search">
+              <form ng-submit="movieCtrl.formAction()" class="input-group custom-search-form">
+                <input id="search" type="text" class="form-control" placeholder="Buscar pelicula..." ng-keypress="movieCtrl.formAction()" ng-model="movieCtrl.movieSearch">
+                <span class="input-group-btn">
                     <button class="btn btn-default" type="button">
                       <i class="fa fa-search"></i>
                     </button>
                   </span>
-                </form>
-                <!-- /input-group -->
-              </li>
-            </div>
+              </form>
+              <!-- /input-group -->
+            </li>
             <li>
               <a href="index.html"><i class="fa fa-film fa-fw"></i> Inicio</a>
             </li>
@@ -160,15 +158,43 @@
       </div>
       <div class="row">
         <div ng-repeat="movie in movies" class="movieList col-xs-6 col-sm-6 col-md-4 col-lg-3">
-          <div ng-click="movieCtrl.movieSelect(movie.movieId)" class="thumbnail">
-            <a href="#"><img class="poster" src="../assets/poster.png" alt="{{movie.title}}" style="background-image: url('https://image.tmdb.org/t/p/original{{movie.poster_path}}');"></a>
+          <div ng-click="movieCtrl.movieSelect(movie.id)" data-toggle="modal" data-target="#myModal" class="thumbnail">
+            <img class="poster" src="../assets/poster.png" alt="{{movie.title}}" style="background-image: url('https://image.tmdb.org/t/p/original{{movie.poster_path}}');">
             <div class="caption">
-              <a href="#" data-toggle="tooltip" data-placement="top" title="{{movie.title}}"><h4>{{movie.title}}</h4></a>
-              <h6 id="release_date" data-toggle="tooltip" data-placement="bottom" title="{{movie.release_date}}"><strong>Fecha de estreno:</strong> {{movie.release_date}}</h6>
+              <a href="#"><h4 data-toggle="tooltip" data-placement="top" title="{{movie.title}}">{{movie.title}}</h4></a>
+              <h6 data-toggle="tooltip" data-placement="bottom" title="{{movie.release_date}}"><strong>Año:</strong> {{movie.release_date}}</h6>
             </div>
           </div>
         </div>
       </div>
+      <div ng-show="movie" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h2 class="modal-title" id="myModalLabel">{{movie.title}}<small> {{movie.release_date}}</small></h2>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="col-md-3">
+                  <img class="poster" src="../assets/poster.png" alt="{{movie.title}}" style="background-image: url('https://image.tmdb.org/t/p/original{{movie.poster_path}}');">
+                </div>
+                <div class="col-md-3">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
     </div>
     <!-- /#wrapper -->
 
