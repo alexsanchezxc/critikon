@@ -88,6 +88,10 @@ body {
   color: var(--color4);
 }
 
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: var(--color4);
+}
+
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
   background-color: var(--color1);
 }
