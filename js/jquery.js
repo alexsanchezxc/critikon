@@ -10,4 +10,17 @@ $(document).ready(function() {
       }
     }
   });
+
+  // NOTE: Cambiar color pagina
+
+  $("#switch").on('change', function() {
+    if ($(this).is(':checked')) {
+      $(this).attr('value', 'true');
+      $('#pageColor').attr('href', '../css/white.css');
+    } else {
+      $(this).attr('value', 'false');
+      $('#pageColor').attr('href', '../css/black.css');
+    }
+  });
+
 });
