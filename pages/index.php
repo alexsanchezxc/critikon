@@ -126,10 +126,10 @@
           	foreach($movies as $movie){
               echo '<div class="movieList col-xs-6 col-sm-6 col-md-4 col-lg-3">';
               echo '<div data-toggle="modal" data-target="#myModal" class="thumbnail">';
-              echo '<img class="poster" data-toggle="tooltip" data-placement="" title="'.$movie->getTitle().'" src="../assets/poster.png" alt="'.$movie->getTitle().'" style="background-image: url('.$img.$movie->getPoster().');">';
+              echo '<img class="poster" src="../assets/poster.png" alt="'.$movie->getTitle().'" style="background-image: url('.$img.$movie->getPoster().');">';
               echo '<div class="caption">';
               echo '<a href="#"><h4 data-toggle="tooltip" data-placement="top" title="'.$movie->getTitle().'">'.$movie->getTitle().'</h4></a>';
-              echo '<h6 data-toggle="tooltip" data-placement="bottom" title="'.$movie->get('release_date').'"><strong>Año:</strong> '.$movie->get('release_date').'</h6>';
+              echo '<h6><strong>Año:</strong> '.$movie->get('release_date').'</h6>';
               echo '</div>';
               echo '</div>';
               echo '</div>';
