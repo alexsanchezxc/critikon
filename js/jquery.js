@@ -1,7 +1,8 @@
 $(document).ready(function() {
-  // NOTE: tooltip-demo (no funciona)
+  // NOTE: tooltip-demo (Texto que sale al poner el raton encima de las peliculas)
   $('[data-toggle="tooltip"]').tooltip();
 
+  // NOTE: Imagen vacia si la url esta vacia (No funciona)
   var url = "url('https://image.tmdb.org/t/p/original')";
   $('input#search').on('input', function() {
     for (var i = 0; i < $(".movieList").length; i++) {
@@ -11,8 +12,7 @@ $(document).ready(function() {
     }
   });
 
-  // NOTE: Cambiar color pagina
-
+  // NOTE: Boton para cambiar el color de pagina
   $("#switch").on('change', function() {
     if ($(this).is(':checked')) {
       $(this).attr('value', 'true');
