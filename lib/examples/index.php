@@ -35,7 +35,7 @@
         </style>
     </head>
     <body>
-        
+
         <!-- NavBar -->
 
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -92,7 +92,7 @@
                         )
                     );
                 ?>
-                
+
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <?php
@@ -125,7 +125,7 @@
                     $tmdb = new TMDB($apikey, 'en', true);
 
                     $path = './'.$_GET['zone'].'/'.$_GET['example'].'.php';
-                    
+
                     if(strpos($path,'../') === false && file_exists($path)) {
                         include $path;
                     }

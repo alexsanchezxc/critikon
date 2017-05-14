@@ -15,18 +15,18 @@ class Configuration {
 	//------------------------------------------------------------------------------
     // Class Variables
     //------------------------------------------------------------------------------
-    
+
 	private $apikey = '';
 	private $lang = 'en';
 	private $timezone = 'Europe/London';
 	private $adult = false;
 	private $debug = false;
 	private $appender;
-	
+
 	//------------------------------------------------------------------------------
 	// Constructor
 	//------------------------------------------------------------------------------
-	
+
 	/**
 	 *  Construct Class
 	 *
@@ -38,22 +38,22 @@ class Configuration {
 		if(!isset($cnf)) {
 			require_once( dirname(__FILE__) . "/../../../configuration/default.php");
 		}
-		
+
 		$this->setAPIKey($cnf['apikey']);
 		$this->setLang($cnf['lang']);
 		$this->setTimeZone('timezone');
 		$this->setAdult($cnf['adult']);
 		$this->setDebug($cnf['debug']);
-		
+
 		foreach($cnf['appender'] as $type => $appender) {
 			$this->setAppender($appender, $type);
 		}
 	}
-	
+
 	//------------------------------------------------------------------------------
     // Set Variables
     //------------------------------------------------------------------------------
-    
+
 	/**
 	 *  Set the API Key
 	 *
@@ -62,7 +62,7 @@ class Configuration {
 	public function setAPIKey($apikey){
 		$this->apikey = $apikey;
 	}
-	
+
 	/**
 	 *  Set the language code
 	 *
@@ -71,7 +71,7 @@ class Configuration {
 	public function setLang($lang){
 		$this->lang = $lang;
 	}
-	
+
 	/**
 	 *  Set the timezone
 	 *
@@ -80,7 +80,7 @@ class Configuration {
 	public function setTimeZone($timezone){
 		$this->timezone = $timezone;
 	}
-	
+
 	/**
 	 *  Set the adult flag
 	 *
@@ -89,7 +89,7 @@ class Configuration {
 	public function setAdult($adult){
 		$this->adult = $adult;
 	}
-	
+
 	/**
 	 *  Set the debug flag
 	 *
@@ -98,7 +98,7 @@ class Configuration {
 	public function setDebug($debug){
 		$this->debug = $debug;
 	}
-	
+
 	/**
 	 *  Set an appender for a special type
 	 *
@@ -108,11 +108,11 @@ class Configuration {
 	public function setAppender($appender, $type){
 		$this->appender[$type] = $appender;
 	}
-	
+
 	//------------------------------------------------------------------------------
     // Get Variables
     //------------------------------------------------------------------------------
-    
+
 	/**
 	 *  Get the API Key
 	 *
@@ -121,7 +121,7 @@ class Configuration {
 	public function getAPIKey(){
 		return $this->apikey;
 	}
-	
+
 	/**
 	 *  Get the language code
 	 *
@@ -130,7 +130,7 @@ class Configuration {
 	public function getLang(){
 		return $this->lang;
 	}
-	
+
 	/**
 	 *  Get the timezone
 	 *
@@ -139,7 +139,7 @@ class Configuration {
 	public function getTimeZone(){
 		return $this->timezone;
 	}
-	
+
 	/**
 	 *  Get the adult string
 	 *
@@ -148,7 +148,7 @@ class Configuration {
 	public function getAdult(){
 		return ($this->adult) ? 'true' : 'false';
 	}
-	
+
 	/**
 	 *  Get the debug flag
 	 *
@@ -157,7 +157,7 @@ class Configuration {
 	public function getDebug(){
 		return $this->debug;
 	}
-	
+
 	/**
 	 *  Get the appender array for a type
 	 *
