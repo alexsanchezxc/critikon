@@ -16,10 +16,10 @@ $(document).ready(function() {
   $("#switch").on('change', function() {
     if ($(this).is(':checked')) {
       $(this).attr('value', 'true');
-      $('#pageColor').attr('href', '../css/white.css');
+      $('#pageColor').attr('href', '../css/black.css');
     } else {
       $(this).attr('value', 'false');
-      $('#pageColor').attr('href', '../css/black.css');
+      $('#pageColor').attr('href', '../css/white.css');
     }
   });
 
