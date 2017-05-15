@@ -76,7 +76,7 @@ body {
   left: auto;
 }
 
-.navbar-inverse, .navbar-inverse .navbar-toggle, .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+.navbar-inverse, .navbar-toggle, .navbar-collapse, .navbar-form {
   border: 0;
   border-color: inherit;
 }
@@ -84,14 +84,15 @@ body {
 
 /* NOTE: Color Critikon */
 
-.navbar-inverse .navbar-brand {
-  color: var(--color4);}
+.navbar-brand {
+  color: var(--color4);
+}
 
-.navbar-inverse .navbar-toggle .icon-bar {
+.navbar-toggle .icon-bar {
   background-color: var(--color4);
 }
 
-.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+.navbar-toggle:focus, .navbar-toggle:hover {
   background-color: var(--color1);
 }
 
@@ -227,10 +228,7 @@ body {
     z-index: 2;
     position: absolute;
     width: 250px;
-    margin-top: 51px;
-  }
-  .navbar-top-links .dropdown-messages, .navbar-top-links .dropdown-tasks, .navbar-top-links .dropdown-alerts {
-    margin-left: auto;
+    margin-top: 0px;
   }
 }
 
@@ -239,12 +237,13 @@ body {
   text-shadow: 0 0 10px black;
   border-bottom: inherit;
   padding-bottom: inherit;
+  margin: 20px 0 20px;
   padding: 1%;
 }
 
 .thumbnail {
   background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   box-shadow: 0 0 10px black;
   cursor: pointer;
@@ -255,6 +254,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 5px;
   box-shadow: 0 0 5px black;
 }
 
@@ -264,18 +264,10 @@ body {
   text-overflow: ellipsis;
 }
 
-.caption h4 {
+.caption h4, .caption h6 {
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.caption h6 {
   color: var(--color4);
   text-shadow: 0 0 5px black;
-  cursor: pointer;
-}
-
-.caption a {
-  color: var(--color4);
   text-decoration: none;
 }
