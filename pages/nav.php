@@ -9,7 +9,7 @@
     </div>
     <!-- NOTE: navbar-header -->
     <div class="sidebar-nav navbar-collapse">
-      <ul class="nav" id="side-menu">
+      <ul class="nav">
         <li>
           <img class="img-responsive" src="">
         </li>
@@ -28,17 +28,15 @@
           <a href="index.php"><i class="fa fa-film fa-fw"></i> Inicio</a>
         </li>
       </ul>
-      <ul class="nav" id="side-menu">
-        <li>
-          <div class="material-switch">
+      <ul class="nav" id="nav">
+        <li class="material-switch">
             <input id="switch" name="switch" type="checkbox" />
             <label for="switch" class="label-default"></label>
-          </div>
         </li>
         <li class="dropup">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-user fa-fw"></i>
-            <i class="fa <fa-caret-up></fa-caret-up>"></i>
+            <i class="fa fa-caret-up"></i>
           </a>
           <ul class="dropdown-menu dropdown-user">
             <li>
