@@ -35,10 +35,10 @@
             <label for="switch" class="label-default"></label>
           </div>
         </li>
-        <li class="dropdown">
+        <li class="dropup">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-user fa-fw"></i>
-            <i class="fa fa-caret-down"></i>
+            <i class="fa <fa-caret-up></fa-caret-up>"></i>
           </a>
           <ul class="dropdown-menu dropdown-user">
             <li>
