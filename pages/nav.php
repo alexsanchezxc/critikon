@@ -9,26 +9,7 @@
     </div>
     <!-- NOTE: navbar-header -->
     <div class="sidebar-nav navbar-collapse">
-      <ul class="nav">
-        <li>
-          <img class="img-responsive" src="">
-        </li>
-        <li class="sidebar-search">
-          <form method="get" class="input-group custom-search-form" autocomplete="off">
-            <input type="text" class="form-control" name="movieSearch" placeholder="Buscar pelicula..." required="">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="submit" name="boton">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
-          </form>
-          <!-- NOTE: input-group -->
-        </li>
-        <li>
-          <a href="index.php"><i class="fa fa-film fa-fw"></i> Inicio</a>
-        </li>
-      </ul>
-      <ul class="nav" id="nav">
+      <ul id="options">
         <li class="material-switch">
             <input id="switch" name="switch" type="checkbox" />
             <label for="switch" class="label-default"></label>
@@ -53,6 +34,25 @@
           <!-- NOTE: dropdown-user -->
         </li>
         <!-- NOTE: dropdown -->
+      </ul>
+      <ul class="nav">
+        <li>
+          <img class="img-responsive" src="">
+        </li>
+        <li class="sidebar-search">
+          <form method="get" class="input-group custom-search-form" autocomplete="off">
+            <input type="text" class="form-control" name="movieSearch" placeholder="Buscar pelicula..." required="">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit" name="boton">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </form>
+          <!-- NOTE: input-group -->
+        </li>
+        <li>
+          <a href="index.php"><i class="fa fa-film fa-fw"></i> Inicio</a>
+        </li>
       </ul>
     </div>
     <!-- NOTE: sidebar-collapse -->
