@@ -8,7 +8,7 @@ body {
 
 #page-wrapper {
   padding: 0 15px;
-  min-height: 900px;
+  min-height: 768px;
   background-color: var(--color3);
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
 }
@@ -65,7 +65,7 @@ body {
   box-shadow: inherit;
 }
 
-.sidebar li a.active, .sidebar li a:hover {
+.sidebar li a.active, .sidebar>li a:hover {
   font-weight: bold;
   background-color: var(--color1);
 }
@@ -105,6 +105,7 @@ body {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
+  z-index: 3;
 }
 
 .dropup {
@@ -194,42 +195,76 @@ body {
   }
 }
 
-.page-header {
+.page-header, .sub-text {
   color: var(--color4);
   text-shadow: 0 0 10px black;
   border-bottom: inherit;
   padding-bottom: inherit;
   margin: 20px 0 20px;
-  padding: 1%;
+  padding: 1% 1% 1% 0;
 }
 
 .thumbnail {
+  color: var(--color4);
   background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   box-shadow: 0 0 10px black;
+  text-align: justify;
+  padding: 2.5%;
+}
+
+.thumbnail h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
 }
 
+.thumbnail p {
+  text-shadow: 0 0 5px black;
+}
+
 .poster {
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+}
+
+.posters {
   border-radius: 5px;
   box-shadow: 0 0 5px black;
 }
 
-.caption {
+.poster, .posters {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.caption h4, .caption h6 {
-  overflow: hidden;
-  text-overflow: ellipsis;
+.caption p {
+  margin: 0;
   color: var(--color4);
   text-shadow: 0 0 5px black;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.caption h4 {
+  color: var(--color4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 5px black;
+  text-decoration: none;
+  cursor: pointer;
 }

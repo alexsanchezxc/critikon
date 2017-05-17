@@ -36,23 +36,13 @@
           // NOTE: Devuleve el array de Movie Object
           echo '<div class="row">';
           echo '<div class="col-lg-12">';
-          echo '<h1 class="page-header">Peliculas</h1>';
+          echo '<h1 class="page-header">Películas</h1>';
           echo '</div>';
           echo '<!-- NOTE: col-lg-12 -->';
           echo '</div>';
           echo '<div class="row">';
           foreach($movies as $movie){
-            echo '<a href="movie.php?id='.$movie->getID().'">';
-            echo '<div class="movieList col-xs-6 col-sm-6 col-md-4 col-lg-3">';
-            echo '<div class="thumbnail">';
-            echo '<img class="poster" src="../assets/poster.png" alt="'.$movie->getTitle().'" style="background-image: url('.$img.$movie->getPoster().');">';
-            echo '<div class="caption">';
-            echo '<h4 data-toggle="tooltip" data-placement="top" title="'.$movie->getTitle().'">'.$movie->getTitle().'</h4>';
-            echo '<h6 data-toggle="tooltip" data-placement="bottom" title="'.$movie->get('release_date').'"><strong>Año:</strong> '.$movie->get('release_date').'</h6>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-            echo '</a>';
+            include('movies.php');
         	}
         } else {
           @$idMovie = $_GET['id'];

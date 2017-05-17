@@ -28,7 +28,38 @@
       <!-- NOTE: Navigation -->
       <?php include('nav.php'); ?>
       <div id="page-wrapper">
-        
+        <?php
+        $img = 'https://image.tmdb.org/t/p/original';
+        if (isset($_REQUEST['boton'])) {
+          $title = $_REQUEST['movieSearch'];
+        	$movies = $tmdb->searchMovie($title);
+          // NOTE: Devuleve el array de Movie Object
+          echo '<div class="row">';
+          echo '<div class="col-lg-12">';
+          echo '<h1 class="page-header">Películas</h1>';
+          echo '</div>';
+          echo '</div>';
+          echo '<div class="row">';
+        	foreach($movies as $movie){
+            include('movies.php');
+        	}
+        } else {
+          // NOTE: (En Proceso)
+          // NOTE: Cambiar el campo() por $page y asignarlo a un boton
+          // NOTE: para hacer una paginacion de Películas
+        	$movies = $tmdb->getPopularMovies();
+          // NOTE: Devuleve el array de Movie Object
+          echo '<div class="row">';
+          echo '<div class="col-lg-12">';
+          echo '<h1 class="page-header">Películas,<small class="sub-text">Popular</small></h1>';
+          echo '</div>';
+          echo '</div>';
+          echo '<div class="row">';
+          foreach($movies as $movie){
+            include('movies.php');
+        	}
+        }
+      ?>
       </div>
     </div>
     <!-- NOTE: #wrapper -->
