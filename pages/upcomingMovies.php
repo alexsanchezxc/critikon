@@ -36,7 +36,7 @@
           // NOTE: Devuleve el array de Movie Object
           echo '<div class="row">';
           echo '<div class="col-lg-12">';
-          echo '<h1 class="page-header">Películas</h1>';
+          echo '<h2 class="page-header">Películas</h2>';
           echo '</div>';
           echo '</div>';
           echo '<div class="row">';
@@ -47,11 +47,11 @@
           // NOTE: (En Proceso)
           // NOTE: Cambiar el campo() por $page y asignarlo a un boton
           // NOTE: para hacer una paginacion de Películas
-        	$movies = $tmdb->getUpcomingMovies();
+        	$movies = $tmdb->getUpcomingMovies(1);
           // NOTE: Devuleve el array de Movie Object
           echo '<div class="row">';
           echo '<div class="col-lg-12">';
-          echo '<h1 class="page-header">Películas,<small class="sub-text">Próximamente</small></h1>';
+          echo '<h2 class="page-header">Películas,<small class="sub-text">Próximamente</small></h2>';
           echo '</div>';
           echo '</div>';
           echo '<div class="row">';

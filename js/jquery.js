@@ -23,4 +23,28 @@ $(document).ready(function() {
     }
   });
 
+  // NOTE: Cambios de la pagina en x resoluciones
+  $(window).on('resize', function() {
+    var win = $(this);
+    // NOTE: Cambio de clase menu desplegable de usuario
+    if (win.width() <= 768) {
+      $('#drop').addClass('dropdown');
+      $('#drop').removeClass('dropup');
+      $('#dropcaret').addClass('fa-caret-down');
+      $('#dropcaret').removeClass('fa-caret-up');
+    } else {
+      $('#drop').removeClass('dropdown');
+      $('#drop').addClass('dropup');
+      $('#dropcaret').removeClass('fa-caret-down');
+      $('#dropcaret').addClass('fa-caret-up');
+    }
+    // NOTE: Cambio en el tamaño de las peliculas
+    if (win.width() <= 375) {
+      $('.movieList').addClass('col-xs-12');
+      $('.movieList').removeClass('col-xs-6');
+    } else {
+      $('.movieList').addClass('col-xs-6');
+      $('.movieList').removeClass('col-xs-12');
+    }
+  }).resize();
 });

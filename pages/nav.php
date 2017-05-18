@@ -14,10 +14,10 @@
             <input id="switch" name="switch" type="checkbox" />
             <label for="switch" class="label-default"></label>
         </li>
-        <li class="dropup">
+        <li id="drop" class="dropup">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="fa fa-user fa-fw"></i>
-            <i class="fa fa-caret-up"></i>
+            <i id="dropcaret" class="fa fa-caret-up"></i>
           </a>
           <ul class="dropdown-menu dropdown-user">
             <li>

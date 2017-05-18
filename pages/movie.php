@@ -36,7 +36,7 @@
           // NOTE: Devuleve el array de Movie Object
           echo '<div class="row">';
           echo '<div class="col-lg-12">';
-          echo '<h1 class="page-header">Películas</h1>';
+          echo '<h2 class="page-header">Películas</h2>';
           echo '</div>';
           echo '<!-- NOTE: col-lg-12 -->';
           echo '</div>';
