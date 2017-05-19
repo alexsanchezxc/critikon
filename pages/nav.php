@@ -15,24 +15,33 @@
             <label for="switch" class="label-default"></label>
         </li>
         <li id="drop" class="dropup">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-user fa-fw"></i>
-            <i id="dropcaret" class="fa fa-caret-up"></i>
-          </a>
-          <ul class="dropdown-menu dropdown-user">
-            <li>
-              <a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="login.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-            </li>
-          </ul>
+          <?php
+            if (isset($_SESSION)) {
+          echo '<a class="dropdown-toggle" data-toggle="dropdown" href="#">';
+          echo  '<i class="fa fa-user fa-fw"></i>';
+          echo  '<i id="dropcaret" class="fa fa-caret-up"></i>';
+          echo '</a>';
+          echo '<ul class="dropdown-menu dropdown-user">';
+          echo  '<li>';
+          echo    '<a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>';
+          echo  '</li>';
+          echo  '<li>';
+          echo    '<a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>';
+          echo  '</li>';
+          echo  '<li class="divider"></li>';
+          echo  '<li>';
+          echo    '<a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>';
+          echo  '</li>';
+          echo '</ul>';
+        } else {
+
+          echo '<a href="login.php" class="btn btn-primary btn-sm">Login</a>';
+
+        }
+           ?>
           <!-- NOTE: dropdown-user -->
         </li>
+
         <!-- NOTE: dropdown -->
       </ul>
       <ul class="nav" id="side-menu">

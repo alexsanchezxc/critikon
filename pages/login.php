@@ -1,6 +1,45 @@
+<?php
+session_start();
+
+if (isset($_SESSION)) {
+    if (isset($_REQUEST['Submit'])) {
+
+        include("conexion.php");
+
+        $username = $_POST['usuario'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM usuarios WHERE Usuario = '$username'";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_array(MYSQLI_ASSOC);
+            if ($row["Pass"] === sha1($password)) {
+              	 // Contraseña correcta
+
+                 //$_SESSION['loggedin'] = true;
+                 $_SESSION['login'] = $row["Usuario"];
+                 /*$_SESSION['start'] = time();
+                 $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);*/
+
+                 //echo "Bienvenido! " . $_SESSION['username'];
+
+                 header("Location: index.php");
+                 exit();
+            }  else {
+                 echo "Username o Password estan incorrectos.";
+                 echo "<br><a>Volva a intentarlo</a>";
+            }
+        } else {
+             echo "Username o Password estan incorrectos.";
+             echo "<br><a>Volva a intentarlo</a>";
+        }
+        mysqli_close($conn);
+    }
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,21 +68,22 @@
             <h3 class="panel-title">Please Sign In</h3>
           </div>
           <div class="panel-body">
-            <form role="form">
+            <form action="login.php" method="post">
               <fieldset>
                 <div class="form-group">
-                  <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                  <input class="form-control" placeholder="Usuario" name="usuario" type="text" autofocus/>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  <input class="form-control" placeholder="Contraseña" name="password" type="password" />
                 </div>
                 <div class="checkbox">
                   <label>
-                      <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                      <input name="remember" type="checkbox" value="Remember Me"/>Remember Me
                   </label>
                 </div>
                 <!-- Change this to a button or input when using this as a form -->
-                <a href="index.php" class="btn btn-lg btn-success btn-block">Login</a>
+                <!--<a href="index.php" class="btn btn-lg btn-success btn-block">Login</a>-->
+                <input class="btn btn-lg btn-success btn-block" type="submit" name="Submit" value="Login"/>
               </fieldset>
             </form>
           </div>
@@ -63,3 +103,9 @@
 </body>
 
 </html>
+<?php
+} else {
+  header("Location: index.php");
+  exit();
+}
+?>

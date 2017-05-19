@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  
   include('../lib/tmdb-api.php');
   @$tmdb = new TMDB($conf);
 ?>
@@ -28,7 +30,23 @@
       <!-- NOTE: Navigation -->
       <?php include('nav.php'); ?>
       <div id="page-wrapper">
-
+        <?php
+        $img = 'https://image.tmdb.org/t/p/original';
+        if (isset($_REQUEST['boton'])) {
+          $title = $_REQUEST['movieSearch'];
+          $movies = $tmdb->searchMovie($title);
+          // NOTE: Devuleve el array de Movie Object
+          echo '<div class="row">';
+          echo '<div class="col-lg-12">';
+          echo '<h2 class="page-header">Películas</h2>';
+          echo '</div>';
+          echo '</div>';
+          echo '<div class="row">';
+          foreach($movies as $movie){
+            include('movies.php');
+          }
+        }
+        ?>
       </div>
     </div>
     <!-- NOTE: #wrapper -->
