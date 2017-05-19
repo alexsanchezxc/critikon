@@ -61,7 +61,6 @@
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <!-- NOTE: Custom Theme JavaScript -->
     <script src="../js/master.js"></script>
-    <script src="../js/app.js"></script>
     <script src="../js/jquery.js"></script>
   </body>
 

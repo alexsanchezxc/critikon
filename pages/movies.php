@@ -1,6 +1,6 @@
 <?php
-  echo '<a href="movie.php?id='.$movie->getID().'">';
   echo '<div class="movieList col-xs-6 col-sm-6 col-md-4 col-lg-3">';
+  echo '<a href="movie.php?id='.$movie->getID().'">';
   echo '<div class="thumbnail">';
   echo '<img class="posters" src="../assets/poster.png" alt="'.$movie->getTitle().'" style="background-image: url('.$img.$movie->getPoster().');">';
   echo '<div class="caption">';
@@ -11,6 +11,6 @@
   echo '</p>';
   echo '</div>';
   echo '</div>';
-  echo '</div>';
   echo '</a>';
+  echo '</div>';
 ?>

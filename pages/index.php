@@ -28,7 +28,7 @@
       <!-- NOTE: Navigation -->
       <?php include('nav.php'); ?>
       <div id="page-wrapper">
-        
+
       </div>
     </div>
     <!-- NOTE: #wrapper -->
@@ -41,7 +41,6 @@
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <!-- NOTE: Custom Theme JavaScript -->
     <script src="../js/master.js"></script>
-    <script src="../js/app.js"></script>
     <script src="../js/jquery.js"></script>
   </body>
 

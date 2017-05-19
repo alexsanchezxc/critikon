@@ -249,10 +249,12 @@ body {
   margin: 20px 0 20px;
   padding: 1% 1% 1% 0;
 }
-
+.movieList a {
+  text-decoration: none;
+}
 .thumbnail {
-  background-color: rgba(0, 0, 0, 0.50);
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.30);
+  border: 1px solid rgba(0, 0, 0, 0.30);
   border-radius: 5px;
   box-shadow: 0 0 10px black;
   padding: 5px;
