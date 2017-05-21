@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION)) {
+if (!isset($_SESSION["usuario"])) {
     if (isset($_REQUEST['Submit'])) {
 
         include("conexion.php");
@@ -19,7 +19,7 @@ if (isset($_SESSION)) {
               	 // Contraseña correcta
 
                  //$_SESSION['loggedin'] = true;
-                 $_SESSION['login'] = $row["Usuario"];
+                 $_SESSION['usuario'] = $row["Usuario"];
                  /*$_SESSION['start'] = time();
                  $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);*/
 

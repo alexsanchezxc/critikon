@@ -1,3 +1,4 @@
+
 <nav>
   <div class="sidebar" role="navigation">
     <div class="navbar-header">
@@ -16,28 +17,38 @@
         </li>
         <li id="drop" class="dropup">
           <?php
-            if (isset($_SESSION)) {
-          echo '<a class="dropdown-toggle" data-toggle="dropdown" href="#">';
-          echo  '<i class="fa fa-user fa-fw"></i>';
-          echo  '<i id="dropcaret" class="fa fa-caret-up"></i>';
-          echo '</a>';
-          echo '<ul class="dropdown-menu dropdown-user">';
-          echo  '<li>';
-          echo    '<a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>';
-          echo  '</li>';
-          echo  '<li>';
-          echo    '<a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>';
-          echo  '</li>';
-          echo  '<li class="divider"></li>';
-          echo  '<li>';
-          echo    '<a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>';
-          echo  '</li>';
-          echo '</ul>';
-        } else {
-
-          echo '<a href="login.php" class="btn btn-primary btn-sm">Login</a>';
-
-        }
+            if (isset($_SESSION["usuario"])) {
+                echo '<a class="dropdown-toggle" data-toggle="dropdown" href="#">';
+                echo  '<i class="fa fa-user fa-fw"></i>';
+                echo  '<i id="dropcaret" class="fa fa-caret-up"></i>';
+                echo '</a>';
+                echo '<ul class="dropdown-menu dropdown-user">';
+                echo  '<li>';
+                echo    '<a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>';
+                echo  '</li>';
+                echo  '<li>';
+                echo    '<a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>';
+                echo  '</li>';
+                echo  '<li class="divider"></li>';
+                echo  '<li>';
+                echo    '<a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>';
+                echo  '</li>';
+                echo '</ul>';
+            } else {
+              echo '<a class="dropdown-toggle" data-toggle="dropdown" href="#">';
+              echo  '<i class="fa fa-user fa-fw"></i>';
+              echo  '<i id="dropcaret" class="fa fa-caret-up"></i>';
+              echo '</a>';
+              echo '<ul class="dropdown-menu dropdown-user">';
+              echo  '<li>';
+              echo    '<a href="login.php" class="btn btn-primary btn-sm"> Login</a>';
+              echo  '</li>';
+              echo  '<li class="divider"></li>';
+              echo  '<li>';
+              echo    '<a href="registro.php"><i class="fa fa-sign-out fa-fw"></i> Registrarse</a>';
+              echo  '</li>';
+              echo '</ul>';
+            }
            ?>
           <!-- NOTE: dropdown-user -->
         </li>
