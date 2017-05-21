@@ -60,6 +60,9 @@ fieldset[disabled] .btn-danger:hover {
     background-color: #7b3b39;
     border-color: #712727;
 }
+.alert {
+  margin-bottom: -20px;
+}
 
 #wrapper {
     width: 100%;
