@@ -34,21 +34,20 @@
                 echo    '<a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>';
                 echo  '</li>';
                 echo '</ul>';
-            } else {
-              echo '<a class="dropdown-toggle" data-toggle="dropdown" href="#">';
-              echo  '<i class="fa fa-user fa-fw"></i>';
-              echo  '<i id="dropcaret" class="fa fa-caret-up"></i>';
-              echo '</a>';
-              echo '<ul class="dropdown-menu dropdown-user">';
-              echo  '<li>';
-              echo    '<a href="login.php" class="btn btn-primary btn-sm"> Login</a>';
-              echo  '</li>';
-              echo  '<li class="divider"></li>';
-              echo  '<li>';
-              echo    '<a href="registro.php"><i class="fa fa-sign-out fa-fw"></i> Registrarse</a>';
-              echo  '</li>';
-              echo '</ul>';
-            }
+              } else {
+                echo '<a class="dropdown-toggle" data-toggle="dropdown" href="#">';
+                echo  '<i class="fa fa-user fa-fw"></i>';
+                echo  '<i id="dropcaret" class="fa fa-caret-up"></i>';
+                echo '</a>';
+                echo '<ul class="dropdown-menu dropdown-user">';
+                echo  '<li>';
+                echo    '<a href="login.php"><i class="fa fa-sign-in fa-fw"></i> Login</a>';
+                echo  '</li>';
+                echo  '<li>';
+                echo    '<a href="registro.php"><i class="fa fa-external-link fa-fw"></i> Registrarse</a>';
+                echo  '</li>';
+                echo '</ul>';
+              }
            ?>
           <!-- NOTE: dropdown-user -->
         </li>

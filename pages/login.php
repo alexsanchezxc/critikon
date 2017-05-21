@@ -18,6 +18,9 @@ if (!isset($_SESSION["usuario"])) {
             if ($row["Pass"] === sha1($password)) {
               	 // Contraseña correcta
 
+                 $year = time() + 31536000;
+                 setcookie('remember_me', $username, $year);
+
                  //$_SESSION['loggedin'] = true;
                  $_SESSION['usuario'] = $row["Usuario"];
                  /*$_SESSION['start'] = time();
@@ -27,13 +30,21 @@ if (!isset($_SESSION["usuario"])) {
 
                  header("Location: index.php");
                  exit();
-            }  else {
-                 echo "Username o Password estan incorrectos.";
-                 echo "<br><a>Volva a intentarlo</a>";
+            } else {
+                  echo '<div class="alert alert-warning alert-dismissible show" role="alert">';
+                  echo '<button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">';
+                  echo '<span aria-hidden="true">&times;</span>';
+                  echo '</button>';
+                  echo '<strong>Holy guacamole!</strong> You should check in on some of those fields below.';
+                  echo '</div>';
             }
         } else {
-             echo "Username o Password estan incorrectos.";
-             echo "<br><a>Volva a intentarlo</a>";
+              echo '<div class="alert alert-warning alert-dismissible show" role="alert">';
+              echo '<button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">';
+              echo '<span aria-hidden="true">&times;</span>';
+              echo '</button>';
+              echo '<strong>Holy guacamole!</strong> You should check in on some of those fields below.';
+              echo '</div>';
         }
         mysqli_close($conn);
     }
@@ -78,12 +89,12 @@ if (!isset($_SESSION["usuario"])) {
                 </div>
                 <div class="checkbox">
                   <label>
-                      <input name="remember" type="checkbox" value="Remember Me"/>Remember Me
+                      <input name="remember" type="checkbox" value="Remember_Me"/>Remember Me
                   </label>
                 </div>
                 <!-- Change this to a button or input when using this as a form -->
                 <!--<a href="index.php" class="btn btn-lg btn-success btn-block">Login</a>-->
-                <input class="btn btn-lg btn-success btn-block" type="submit" name="Submit" value="Login"/>
+                <input class="btn btn-lg btn-danger btn-block" type="submit" name="Submit" value="Login"/>
               </fieldset>
             </form>
           </div>
