@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,10 +22,9 @@
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 
-
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row vertical-align">
       <div class="col-md-4 col-md-offset-4">
         <div class="login-panel panel panel-default">
           <?php
@@ -54,7 +53,7 @@
 
               mysqli_close($conn);
             }
-          ?>
+            ?>
             <div class="panel-heading">
               <h3 class="panel-title">Iniciar sesión</h3>
             </div>

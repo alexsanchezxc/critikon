@@ -25,48 +25,48 @@ session_start();
 
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row vertical-align">
       <div class="col-md-4 col-md-offset-4">
         <div class="login-panel panel panel-default">
           <?php
           if (!isset($_SESSION["usuario"])) {
-              if (isset($_REQUEST['Submit'])) {
+            if (isset($_REQUEST['Submit'])) {
 
-                  include("conexion.php");
+              include("conexion.php");
 
-                  $username = $_POST['usuario'];
-                  $password = $_POST['password'];
+              $username = $_POST['usuario'];
+              $password = $_POST['password'];
 
-                  $sql = "SELECT * FROM usuarios WHERE Usuario = '$username'";
+              $sql = "SELECT * FROM usuarios WHERE Usuario = '$username'";
 
-                  $result = $conn->query($sql);
+              $result = $conn->query($sql);
 
-                  if ($result->num_rows > 0) {
-                      $row = $result->fetch_array(MYSQLI_ASSOC);
-                      if ($row["Pass"] === sha1($password)) {
-                           // Contraseña correcta
-                           $year = time() + 31536000;
-                           setcookie('remember_me', $username, $year);
+              if ($result->num_rows > 0) {
+                $row = $result->fetch_array(MYSQLI_ASSOC);
+                if ($row["Pass"] === sha1($password)) {
+                  // Contraseña correcta
+                  $year = time() + 31536000;
+                  setcookie('remember_me', $username, $year);
 
-                           $_SESSION['usuario'] = $row["Usuario"];
+                  $_SESSION['usuario'] = $row["Usuario"];
 
-                           header("Location: index.php");
-                           exit();
-                      } else {
-                            echo '<div class="alert alert-danger alert-dismissable">';
-                            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                            echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion este correcta.';
-                            echo '</div>';
-                      }
-                  } else {
-                    echo '<div class="alert alert-danger alert-dismissable">';
-                    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                    echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion este correcta.';
-                    echo '</div>';
-                  }
-                  mysqli_close($conn);
+                  header("Location: index.php");
+                  exit();
+                } else {
+                  echo '<div class="alert alert-danger alert-dismissable">';
+                  echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                  echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion este correcta.';
+                  echo '</div>';
+                }
+              } else {
+                echo '<div class="alert alert-danger alert-dismissable">';
+                echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion este correcta.';
+                echo '</div>';
               }
-          ?>
+              mysqli_close($conn);
+            }
+            ?>
             <div class="panel-heading">
               <h3 class="panel-title">Iniciar sesión</h3>
             </div>
@@ -82,7 +82,7 @@ session_start();
                   <div class="checkbox">
                     <label>
                       <input name="remember" type="checkbox" value="Remember_Me"/>Recordarme
-                  </label>
+                    </label>
                   </div>
                   <!-- Change this to a button or input when using this as a form -->
                   <!--<a href="index.php" class="btn btn-lg btn-success btn-block">Login</a>-->
@@ -90,23 +90,23 @@ session_start();
                 </fieldset>
               </form>
             </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- NOTE: jQuery -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <!-- NOTE: Bootstrap Core JavaScript -->
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-  <!-- NOTE: Metis Menu Plugin JavaScript -->
-  <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-  <!-- NOTE: Custom Theme JavaScript -->
-  <script src="../js/master.js"></script>
-  <script src="../js/jquery.js"></script>
-</body>
+    <!-- NOTE: jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <!-- NOTE: Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- NOTE: Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- NOTE: Custom Theme JavaScript -->
+    <script src="../js/master.js"></script>
+    <script src="../js/jquery.js"></script>
+  </body>
 
-</html>
-<?php
+  </html>
+  <?php
 } else {
   header("Location: index.php");
   exit();
