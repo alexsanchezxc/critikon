@@ -47,38 +47,39 @@ session_start();
               } else {
                 echo '<div class="alert alert-danger alert-dismissable">';
                 echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                echo '<strong>Error.</strong>';
+                echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
                 echo '</div>';
               }
 
               mysqli_close($conn);
             }
             ?>
+            <div id"error"></div>
             <div class="panel-heading">
-              <h3 class="panel-title">Iniciar sesión</h3>
+              <h3 class="panel-title">Registrar Usuario</h3>
             </div>
             <div class="panel-body">
-              <form action="registro.php" method="post">
+              <form id="registro" action="registro.php" method="post">
                 <fieldset>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Nombre" name="nombre" type="text" />
+                    <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" type="text" />
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Apellidos" name="apellidos" type="text" />
+                    <input class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" type="text" />
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Usuario" name="usuario" type="text" />
+                    <input class="form-control" placeholder="Usuario" id="usuario" name="usuario" type="text" />
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Contraseña" name="password" type="password" />
+                    <input class="form-control" placeholder="Contraseña" id="password1" name="password1" type="password" />
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Repita la Contraseña" name="password" type="password" />
+                    <input class="form-control" placeholder="Repita la Contraseña" id="password2" name="password2" type="password" />
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Email" name="email" type="email" />
+                    <input class="form-control" placeholder="Email" id="email" name="email" type="email" />
                   </div>
-                  <input class="btn btn-lg btn-danger btn-block" type="submit" name="Submit" value="Registrarse" />
+                  <input class="btn btn-lg btn-danger btn-block" type="submit" id="submit" name="Submit" value="Registrarse" />
                 </fieldset>
               </form>
             </div>
@@ -88,13 +89,15 @@ session_start();
   </div>
   <!-- NOTE: jQuery -->
   <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../js/jquery.js"></script>
   <!-- NOTE: Bootstrap Core JavaScript -->
   <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
   <!-- NOTE: Metis Menu Plugin JavaScript -->
   <script src="../vendor/metisMenu/metisMenu.min.js"></script>
   <!-- NOTE: Custom Theme JavaScript -->
   <script src="../js/master.js"></script>
-  <script src="../js/jquery.js"></script>
+  <script src="../js/validacion.js"></script>
+
 </body>
 
 </html>
