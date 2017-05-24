@@ -1,161 +1,103 @@
-$(document).ready(function() {
-  //variables globales
-  var usuario = $("#usuario");
-  var nombre = $("#nombre");
-  var apellidos = $("#apellidos");
-  var password1 = $("#password1");
-  var password2 = $("#password2");
-  var email = $("#email");
-});
+window.onload = iniciar;
 
-//funciones de validacion
-function validateUsuario() {
-  //NO cumple longitud minima
-  if (usuario.val().length < 4) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>El usuario debe ser de mínimo 4 caracteres.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
+function iniciar() {
+  $("#submit").click(validar);
+  $("#usuario").on("keyup", validarUsuario);
+  $("#nombre").on("keyup", validarNombre);
+  $("#apellidos").on("keyup", validarApellidos);
+  $("#email").on("keyup", validarEmail);
+  $("#password1").on("keyup", validarPassword1);
+  $("#password2").on("keyup", validarPassword2);
+
+  //document.getElementById("cb").addEventListener("change", mostrarOculto, false);
+}
+
+function validarUsuario() {
+  if ($("#usuario").val().length < 4) {
+    $("#error").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+      '<strong>El usuario debe tener 4 carecteres minimo.</strong>.' +
+      '</div>');
     return false;
-  }
-  // SI longitud,
-  else {
+  } else {
+    $("#error").html('');
     return true;
   }
 }
 
-function validateNombre() {
-  //NO cumple longitud minima
-  if (nombre.val().length < 1) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>El nombre es obligatorio.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
+function validarNombre() {
+  if ($("#nombre").val().length === 0) {
+    $("#error").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+      '<strong>El nombre es obligatorio.</strong>.' +
+      '</div>');
     return false;
-  }
-  // SI longitud,
-  else {
+  } else {
+    $("#error").html('');
     return true;
   }
 }
 
-function validateApellidos() {
-  //NO cumple longitud minima
-  if (apellidos.val().length < 1) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>Debes introducir al menos un apellido.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
+function validarApellidos() {
+  if ($("#apellidos").val().length === 0) {
+    $("#error").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+      '<strong>El apellido es obligatorio.</strong>.' +
+      '</div>');
     return false;
-  }
-  // SI longitud,
-  else {
+  } else {
+    $("#error").html('');
     return true;
   }
 }
 
-function validatePassword1() {
-  //NO tiene minimo de 5 caracteres o mas de 12 caracteres
-  if (password1.val().length < 5) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>La contraseña debe ser de minimo 5 caracteres.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
+function validarEmail() {
+  if (!$("#email").val().match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+    $("#error").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+      '<strong>Introduzca un email válido.</strong>.' +
+      '</div>');
     return false;
-  }
-  // SI longitud, NO VALIDO numeros y letras
-  else if (!password1.val().match(/^[0-9a-zA-Z]+$/)) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>La contraseña debe contener números y caracteres.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
-    return false;
-  }
-  // SI rellenado, SI email valido
-  else {
+  } else {
+    $("#error").html('');
     return true;
   }
 }
 
-function validatePassword2() {
-  //NO son iguales las password
-  if (password1.val() != password2.val()) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>Las contraseñas no son iguales.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
+function validarPassword1() {
+  var elemento = document.getElementById("tlfn");
+  if ($("#password1").val().length < 5 || $("#password1").val().length > 12) {
+    $("#error").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+      '<strong>La contraseña debe ser entre 5 y 12 caracteres.</strong>.' +
+      '</div>');
+    return false;
+  } else if (!$("#password1").val().match(/^[0-9a-zA-Z]+$/)) {
+    $("#error").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+      '<strong>La contraseña debe contener números y letras.</strong>.' +
+      '</div>');
+    return false;
+  } else {
+    $("#error").html('');
+    return true;
+  }
+}
+
+function validarPassword2() {
+  if ($("#password1").val() != $("#password2").val()) {
+    $("#error").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+      '<strong>Las contraseñas deben ser iguales.</strong>.' +
+      '</div>');
     return false;
   }
   // SI son iguales
   else {
+    $("#error").html('');
     return true;
   }
 }
 
-function validateEmail() {
-  //NO hay nada escrito
-  if (email.val().length == 0) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>El email es obligatorio.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
-    return false;
-  }
-  // SI escrito, NO VALIDO email
-  else if (!email.val().match(/^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i)) {
-    var code = "";
-    code += '<div class="alert alert-danger alert-dismissable">';
-    code += '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    code += '<strong>Email no válido.</strong> Comprueba que la informacion este correcta.';
-    code += '</div>';
-    $("#error").html(code);
-    return false;
-  }
-  // SI rellenado, SI email valido
-  else {
+function validar(e) {
+  $("#error").html("");
+  if (validarNombre() && validarUsuario() && validarEmail() && validarPassword2() && validarPassword1() && validarApellidos()) {
     return true;
+  } else {
+    e.preventDefault();
+    return false;
   }
 }
-
-
-usuario.blur(validateUsuario);
-email.blur(validateEmail);
-nombre.blur(validateNombre);
-apellidos.blur(validateApellidos);
-password1.blur(validatePassword1);
-password2.blur(validatePassword2);
-
-// Pulsacion de tecla
-usuario.keyup(validateUsuario);
-email.keyup(validateEmail);
-nombre.keyup(validateNombre);
-apellidos.keyup(validateApellidos);
-password1.keyup(validatePassword1);
-password2.keyup(validatePassword2);
-
-// Envio de formulario
-$("#registro").submit(function() {
-  if (validateUsuario() & validatePassword1() & validatePassword2() & validateEmail() & validateNombre() & validateApellidos())
-    return true;
-  else
-    return false;
-});
-
-//controlamos el foco / perdida de foco para los input text
-searchBoxes.focus(function() {
-  $(this).addClass("active");
-});

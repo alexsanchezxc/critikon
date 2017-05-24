@@ -54,10 +54,10 @@ session_start();
               mysqli_close($conn);
             }
             ?>
-            <div id"error"></div>
             <div class="panel-heading">
               <h3 class="panel-title">Registrar Usuario</h3>
             </div>
+            <div id="error"></div>
             <div class="panel-body">
               <form id="registro" action="registro.php" method="post">
                 <fieldset>

@@ -55,13 +55,13 @@ session_start();
                 } else {
                   echo '<div class="alert alert-danger alert-dismissable">';
                   echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                  echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion este correcta.';
+                  echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion sea correcta.';
                   echo '</div>';
                 }
               } else {
                 echo '<div class="alert alert-danger alert-dismissable">';
                 echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion este correcta.';
+                echo '<strong>Nombre o Contraseña incorrectos.</strong> Comprueba que la informacion sea correcta.';
                 echo '</div>';
               }
               mysqli_close($conn);
