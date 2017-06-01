@@ -20,6 +20,7 @@ session_start();
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <?php include('scripts.php'); ?>
 </head>
 
 <body>
@@ -38,10 +39,6 @@ session_start();
               $password2 = $_POST['password2'];
               $email = $_POST['email'];
               $date = date('Y-m-d');
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
               // NOTE: Comprobamos si el usuario existe
               $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR Email = '$email'";
               $result = $conn->query($sql);
@@ -106,17 +103,6 @@ session_start();
       </div>
     </div>
   </div>
-  <!-- NOTE: jQuery -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../js/jquery.js"></script>
-  <!-- NOTE: Bootstrap Core JavaScript -->
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-  <!-- NOTE: Metis Menu Plugin JavaScript -->
-  <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-  <!-- NOTE: Custom Theme JavaScript -->
-  <script src="../js/master.js"></script>
-  <script src="../js/validacion.js"></script>
-
 </body>
 
 </html>
