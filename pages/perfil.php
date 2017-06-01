@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('../lib/tmdb-api.php');
+@$tmdb = new TMDB($conf);
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,51 +26,33 @@ session_start();
 </head>
 
 <body>
-  <div class="container">
-    <div class="row vertical-align">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="login-panel panel panel-default">
-          <?php
-          if (!isset($_SESSION["usuario"])) {
-            if (isset($_REQUEST['Submit'])) {
-              include("conexion.php");
-              $nombre = $_POST['nombre'];
-              $apellidos = $_POST['apellidos'];
-              $usuario = $_POST['usuario'];
-              $password1 = $_POST['password1'];
-              $password2 = $_POST['password2'];
-              $email = $_POST['email'];
-              $date = date('Y-m-d');
-              // NOTE: Comprobamos si el usuario existe
-              $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR Email = '$email'";
-              $result = $conn->query($sql);
-              if ($result->num_rows == 0) {
-                $sql = "INSERT INTO usuarios (Nombre, Apellidos, Usuario, Pass, Email, Fecha_Registro)
-                VALUES ('$nombre', '$apellidos', '$usuario', sha1('$password1'), '$email', '$date')";
-                if (mysqli_query($conn, $sql)) {
-                  header("Location: index.php");
-                  exit();
-                } else {
-                  echo '<div class="alert alert-danger alert-dismissable">';
-                  echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                  echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
-                  echo '</div>';
-                }
-                mysqli_close($conn);
-              } else {
-                echo '<div class="alert alert-danger alert-dismissable">';
-                echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                echo '<strong>El usuario/email ya existe.</strong>';
-                echo '</div>';
-              }
-            }
-            ?>
-          <div class="panel-heading">
-            <h3 class="panel-title">Registrar Usuario</h3>
+  <div id="wrapper">
+    <!-- NOTE: Navigation -->
+    <?php include('nav.php'); ?>
+    <div id="page-wrapper">
+      <?php
+      $img = 'https://image.tmdb.org/t/p/original';
+      if (isset($_REQUEST['boton'])) {
+        $title = $_REQUEST['movieSearch'];
+        $movies = $tmdb->searchMovie($title);
+        // NOTE: Devuleve el array de Movie Object
+        echo '<div class="row">';
+        echo '<div class="col-lg-12">';
+        echo '<h1 class="page-header">Películas</h1>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="row">';
+        foreach($movies as $movie){
+          include('movies.php');
+        }
+      } else {
+        ?>
+        <div class="perfil" style="padding: 10px;background-color: white;min-height: 100%;margin-left: -30px;margin-right: -30px;">
+          <div>
+            <h3>Perfil</h3>
           </div>
-          <div id="error"></div>
-          <div class="panel-body">
-            <form id="registro" action="registro.php" method="post">
+          <div>
+            <form style="margin-left: 80px">
               <fieldset>
                 <div class="form-group">
                   <p></p>
@@ -100,15 +84,12 @@ session_start();
             </form>
           </div>
         </div>
-      </div>
+        <?php
+      }
+      ?>
     </div>
   </div>
+  <!-- NOTE: #wrapper -->
 </body>
 
 </html>
-<?php
-} else {
-  header("Location: index.php");
-  exit();
-}
-?>
