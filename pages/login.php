@@ -26,30 +26,23 @@ session_start();
 <body>
   <div class="container">
     <div class="row vertical-align">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-6 col-md-offset-3">
         <div class="login-panel panel panel-default">
           <?php
           if (!isset($_SESSION["usuario"])) {
             if (isset($_REQUEST['Submit'])) {
-
               include("conexion.php");
-
               $username = $_POST['usuario'];
               $password = $_POST['password'];
-
               $sql = "SELECT * FROM usuarios WHERE Usuario = '$username'";
-
               $result = $conn->query($sql);
-
               if ($result->num_rows > 0) {
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 if ($row["Pass"] === sha1($password)) {
                   // Contraseña correcta
                   $year = time() + 31536000;
                   setcookie('remember_me', $username, $year);
-
                   $_SESSION['usuario'] = $row["Usuario"];
-
                   header("Location: index.php");
                   exit();
                 } else {
@@ -87,6 +80,8 @@ session_start();
                   <!-- Change this to a button or input when using this as a form -->
                   <!--<a href="index.php" class="btn btn-lg btn-success btn-block">Login</a>-->
                   <input class="btn btn-lg btn-danger btn-block" type="submit" name="Submit" value="Login" />
+                  <br>
+                  <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-danger btn-block" type="button" name="Volver" value="Volver atrás" /></a>
                 </fieldset>
               </form>
             </div>

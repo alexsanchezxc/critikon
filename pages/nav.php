@@ -1,4 +1,3 @@
-
 <nav>
   <div class="sidebar" role="navigation">
     <div class="navbar-header">

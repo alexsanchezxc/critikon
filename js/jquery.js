@@ -1,3 +1,31 @@
+window.onload = iniciar;
+function iniciar() {
+  checkCookie();
+}
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  var boton = getCookie("boton");
+  if (boton == "../css/white.css") {
+    $('#pageColor').attr('href', boton);
+  } else if (boton == "../css/black.css") {
+    $('#pageColor').attr('href', boton);
+  }
+}
 $(document).ready(function() {
   // NOTE: tooltip-demo (Texto que sale al poner el raton encima de las peliculas)
   $('[data-toggle="tooltip"]').tooltip();
@@ -15,11 +43,11 @@ $(document).ready(function() {
   // NOTE: Boton para cambiar el color de pagina
   $("#switch").on('change', function() {
     if ($(this).is(':checked')) {
-      $(this).attr('value', 'true');
       $('#pageColor').attr('href', '../css/black.css');
+      document.cookie = "boton=" + $('#pageColor').attr('href') + ";expires=365;path=/";
     } else {
-      $(this).attr('value', 'false');
       $('#pageColor').attr('href', '../css/white.css');
+      document.cookie = "boton=" + $('#pageColor').attr('href') + ";expires=365;path=/";
     }
   });
 

@@ -254,7 +254,7 @@ body {
 
 /* NOTE: Elementos del contenido de la pagina */
 
-.page-header, .sub-text {
+.page-header {
   color: var(--color4);
   text-shadow: 0 0 2.5px black, 0 0 5px black;
   border-bottom: inherit;
@@ -303,7 +303,7 @@ body {
   text-align: justify;
 }
 
-.thumbnail h2 {
+.thumbnail h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -351,9 +351,10 @@ body {
   cursor: pointer;
 }
 
-.caption h4 {
+.caption h3 {
   color: var(--color4);
   white-space: nowrap;
+  margin: 10px 0 10px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   text-shadow: 0 0 2.5px black, 0 0 5px black;

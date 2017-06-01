@@ -1,9 +1,8 @@
 <?php
-$servername = "localhost";
+$servername = "217.182.205.110:3306";
 $username = "root";
-$password = "";
+$password = "Cr1t1k0n-";
 $dbname = "critikon";
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection

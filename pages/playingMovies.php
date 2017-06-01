@@ -38,7 +38,7 @@ include('../lib/tmdb-api.php');
         // NOTE: Devuleve el array de Movie Object
         echo '<div class="row">';
         echo '<div class="col-lg-12">';
-        echo '<h2 class="page-header">Películas</h2>';
+        echo '<h1 class="page-header">Películas</h1>';
         echo '</div>';
         echo '</div>';
         echo '<div class="row">';
@@ -53,7 +53,7 @@ include('../lib/tmdb-api.php');
         // NOTE: Devuleve el array de Movie Object
         echo '<div class="row">';
         echo '<div class="col-lg-12">';
-        echo '<h2 class="page-header">Películas,<small class="sub-text">En Cartelera Hoy</small></h2>';
+        echo '<h1 class="page-header">En Cartelera Hoy</h1>';
         echo '</div>';
         echo '</div>';
         echo '<div class="row">';
@@ -65,7 +65,7 @@ include('../lib/tmdb-api.php');
     </div>
   </div>
   <!-- NOTE: #wrapper -->
-  
+
   <!-- NOTE: jQuery -->
   <script src="../vendor/jquery/jquery.min.js"></script>
   <!-- NOTE: Bootstrap Core JavaScript -->

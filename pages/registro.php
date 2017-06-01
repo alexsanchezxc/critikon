@@ -25,64 +25,83 @@ session_start();
 <body>
   <div class="container">
     <div class="row vertical-align">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-6 col-md-offset-3">
         <div class="login-panel panel panel-default">
           <?php
           if (!isset($_SESSION["usuario"])) {
             if (isset($_REQUEST['Submit'])) {
-
               include("conexion.php");
-
               $nombre = $_POST['nombre'];
               $apellidos = $_POST['apellidos'];
               $usuario = $_POST['usuario'];
-              $password = $_POST['password'];
+              $password1 = $_POST['password1'];
+              $password2 = $_POST['password2'];
               $email = $_POST['email'];
+              $date = date('Y-m-d');
+<<<<<<< HEAD
+=======
 
-              $sql = "INSERT INTO usuarios (Nombre, Apellidos, Usuario, Pass, Email)
-              VALUES ('$nombre', '$apellidos', '$usuario', sha1('$password'), '$email')";
-              if (mysqli_query($conn, $sql)) {
-                header("Location: index.php");
-                exit();
+>>>>>>> origin/master
+              // NOTE: Comprobamos si el usuario existe
+              $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR Email = '$email'";
+              $result = $conn->query($sql);
+              if ($result->num_rows == 0) {
+                $sql = "INSERT INTO usuarios (Nombre, Apellidos, Usuario, Pass, Email, Fecha_Registro)
+                VALUES ('$nombre', '$apellidos', '$usuario', sha1('$password1'), '$email', '$date')";
+                if (mysqli_query($conn, $sql)) {
+                  header("Location: index.php");
+                  exit();
+                } else {
+                  echo '<div class="alert alert-danger alert-dismissable">';
+                  echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+                  echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
+                  echo '</div>';
+                }
+                mysqli_close($conn);
               } else {
                 echo '<div class="alert alert-danger alert-dismissable">';
                 echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-                echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
+                echo '<strong>El usuario/email ya existe.</strong>';
                 echo '</div>';
               }
-
-              mysqli_close($conn);
             }
             ?>
-            <div class="panel-heading">
-              <h3 class="panel-title">Registrar Usuario</h3>
-            </div>
-            <div id="error"></div>
-            <div class="panel-body">
-              <form id="registro" action="registro.php" method="post">
-                <fieldset>
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" type="text" />
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" type="text" />
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Usuario" id="usuario" name="usuario" type="text" />
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Contraseña" id="password1" name="password1" type="password" />
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Repita la Contraseña" id="password2" name="password2" type="password" />
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Email" id="email" name="email" type="email" />
-                  </div>
-                  <input class="btn btn-lg btn-danger btn-block" type="submit" id="submit" name="Submit" value="Registrarse" />
-                </fieldset>
-              </form>
-            </div>
+          <div class="panel-heading">
+            <h3 class="panel-title">Registrar Usuario</h3>
+          </div>
+          <div id="error"></div>
+          <div class="panel-body">
+            <form id="registro" action="registro.php" method="post">
+              <fieldset>
+                <div class="form-group">
+                  <p></p>
+                  <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" type="text" />
+                </div>
+                <div class="form-group">
+                  <p></p>
+                  <input class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" type="text" />
+                </div>
+                <div class="form-group">
+                  <p></p>
+                  <input class="form-control" placeholder="Usuario" id="usuario" name="usuario" type="text" />
+                </div>
+                <div class="form-group">
+                  <p></p>
+                  <input class="form-control" placeholder="Contraseña" id="password1" name="password1" type="password" />
+                </div>
+                <div class="form-group">
+                  <p></p>
+                  <input class="form-control" placeholder="Repita la Contraseña" id="password2" name="password2" type="password" />
+                </div>
+                <div class="form-group">
+                  <p></p>
+                  <input class="form-control" placeholder="Email" id="email" name="email" type="email" />
+                </div>
+                <input class="btn btn-lg btn-danger btn-block" type="submit" id="submit" name="Submit" value="Registrarse" />
+                <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-danger btn-block" type="button" name="Volver" value="Volver atrás" /></a>
+              </fieldset>
+            </form>
+          </div>
         </div>
       </div>
     </div>
