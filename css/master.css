@@ -319,11 +319,7 @@ body {
 }
 
 .poster {
-  box-shadow: 0 0 10px black;
-}
-
-.posters {
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 15px black;
 }
 
 .poster, .posters {
@@ -332,6 +328,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  box-shadow: 0 0 5px black;
 }
 
 .flex {
@@ -415,4 +412,18 @@ body {
 .tab-pane p {
   color: inherit;
   text-shadow: inherit;
+}
+
+.actor {
+  width: inherit;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.table>thead>tr>th, .table>tbody>tr>td {
+  vertical-align: inherit;
+  text-align: center;
 }
