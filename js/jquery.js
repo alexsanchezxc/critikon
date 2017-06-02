@@ -22,8 +22,10 @@ function checkCookie() {
   var boton = getCookie("boton");
   if (boton == "../css/white.css") {
     $('#pageColor').attr('href', boton);
+    $('#switch').attr('checked',false);
   } else if (boton == "../css/black.css") {
     $('#pageColor').attr('href', boton);
+    $('#switch').attr('checked',true);
   }
 }
 $(document).ready(function() {

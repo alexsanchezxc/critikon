@@ -16,9 +16,9 @@ echo '</thead>';
 echo '<tbody>';
 for ($i=0; $i < 12;) {
   echo '<tr>';
-  echo '<td><img class="actor" src="../assets/actor.png" style="background-image: url('.$img.$credits['cast'][$i]['profile_path'].');"></td>';
-  echo '<td>'.$credits['cast'][$i]['character'].'</td>';
-  echo '<td>'.$credits['cast'][$i]['name'].'</td>';
+  echo '<td><img class="actor" src="../assets/actor.png" style="background-image: url('.$img.@$credits['cast'][$i]['profile_path'].');"></td>';
+  echo '<td>'.@$credits['cast'][$i]['character'].'</td>';
+  echo '<td>'.@$credits['cast'][$i]['name'].'</td>';
   echo '</tr>';
   $i = $i + 2;
 }
@@ -39,9 +39,9 @@ echo '</thead>';
 echo '<tbody>';
 for ($i=1; $i < 12;) {
   echo '<tr>';
-  echo '<td><img class="actor" src="../assets/actor.png" style="background-image: url('.$img.$credits['cast'][$i]['profile_path'].');"></td>';
-  echo '<td>'.$credits['cast'][$i]['character'].'</td>';
-  echo '<td>'.$credits['cast'][$i]['name'].'</td>';
+  echo '<td><img class="actor" src="../assets/actor.png" style="background-image: url('.$img.@$credits['cast'][$i]['profile_path'].');"></td>';
+  echo '<td>'.@$credits['cast'][$i]['character'].'</td>';
+  echo '<td>'.@$credits['cast'][$i]['name'].'</td>';
   echo '</tr>';
   $i = $i + 2;
 }

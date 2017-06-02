@@ -22,16 +22,16 @@ include('../lib/tmdb-api.php');
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <?php 
+  <?php
   define("scripts", 1);
-  include('scripts.php'); 
+  include('scripts.php');
   ?>
 </head>
 
 <body>
   <div id="wrapper">
     <!-- NOTE: Navigation -->
-    <?php 
+    <?php
     define("nav", 1);
     define("movies", 1);
     include('nav.php');
