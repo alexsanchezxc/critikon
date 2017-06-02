@@ -21,6 +21,7 @@ session_start();
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <?php include('scripts.php'); ?>
+  <script src="../js/validacion.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -95,6 +96,7 @@ session_start();
                   <input class="form-control" placeholder="Email" id="email" name="email" type="email" />
                 </div>
                 <input class="btn btn-lg btn-danger btn-block" type="submit" id="submit" name="Submit" value="Registrarse" />
+                <br>
                 <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-danger btn-block" type="button" name="Volver" value="Volver atrás" /></a>
               </fieldset>
             </form>
