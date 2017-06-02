@@ -1,4 +1,8 @@
 <?php
+if (!defined("modal")){
+    header("Location: index.php");
+    exit();
+}
 $getMovie = $tmdb->getMovie($idMovie);
 echo '<br>';
 echo '<div class="container-fluid thumbnail">';
@@ -38,6 +42,7 @@ echo '<div class="tab-content">';
 echo '<div class="tab-pane fade in active" id="actores">';
 $credits = $getMovie->get('credits');
 echo '<br>';
+define("actor", 1);
 include('actor.php');
 echo '</div>';
 echo '</div>';

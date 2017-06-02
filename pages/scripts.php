@@ -1,3 +1,9 @@
+<?php
+if (!defined("scripts")){
+    header("Location: index.php");
+    exit();
+}
+?>
 <!-- NOTE: jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 <!-- NOTE: Bootstrap Core JavaScript -->

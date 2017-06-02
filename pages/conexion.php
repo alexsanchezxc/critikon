@@ -1,4 +1,8 @@
 <?php
+if (!defined("conn")) {
+    header("Location: index.php");
+    exit();
+}
 $servername = "217.182.205.110:3306";
 $username = "root";
 $password = "Cr1t1k0n-";

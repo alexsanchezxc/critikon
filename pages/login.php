@@ -20,7 +20,10 @@ session_start();
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <?php include('scripts.php'); ?>
+  <?php 
+  define("scripts", 1);
+  include('scripts.php'); 
+  ?>
 </head>
 
 <body>
@@ -29,6 +32,7 @@ session_start();
       <div class="col-md-6 col-md-offset-3">
         <div class="login-panel panel panel-default">
           <?php
+          define("conn", 1);
           if (!isset($_SESSION["usuario"])) {
             if (isset($_REQUEST['Submit'])) {
               include("conexion.php");

@@ -1,4 +1,8 @@
 <?php
+if (!defined("actor")){
+    header("Location: index.php");
+    exit();
+}
 echo '<div class="col-md-6">';
 echo '<div class="table-responsive">';
 echo '<table class="table">';

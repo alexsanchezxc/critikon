@@ -23,13 +23,20 @@ include('../lib/tmdb-api.php');
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <?php include('scripts.php'); ?>
+  <?php 
+  define("scripts", 1);
+  include('scripts.php'); 
+  ?>
 </head>
 
 <body>
   <div id="wrapper">
     <!-- NOTE: Navigation -->
-    <?php include('nav.php'); ?>
+    <?php 
+    define("nav", 1);
+    define("movies", 1);
+    include('nav.php');  
+    ?>
     <div id="page-wrapper">
       <?php
       $img = 'https://image.tmdb.org/t/p/original';
