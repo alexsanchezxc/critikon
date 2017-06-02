@@ -20,9 +20,9 @@ session_start();
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <?php 
+  <?php
   define("scripts", 1);
-  include('scripts.php'); 
+  include('scripts.php');
   ?>
   <script src="../js/validacion.js" charset="utf-8"></script>
 </head>
@@ -76,28 +76,28 @@ session_start();
             <form id="registro" action="registro.php" method="post">
               <fieldset>
                 <div class="form-group">
-                  <p></p>
                   <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" type="text" />
+                  <p class="p-margin"></p>
                 </div>
                 <div class="form-group">
-                  <p></p>
                   <input class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" type="text" />
+                  <p class="p-margin"></p>
                 </div>
                 <div class="form-group">
-                  <p></p>
                   <input class="form-control" placeholder="Usuario" id="usuario" name="usuario" type="text" />
+                  <p class="p-margin"></p>
                 </div>
                 <div class="form-group">
-                  <p></p>
                   <input class="form-control" placeholder="Contraseña" id="password1" name="password1" type="password" />
+                  <p class="p-margin"></p>
                 </div>
                 <div class="form-group">
-                  <p></p>
                   <input class="form-control" placeholder="Repita la Contraseña" id="password2" name="password2" type="password" />
+                  <p class="p-margin"></p>
                 </div>
                 <div class="form-group">
-                  <p></p>
                   <input class="form-control" placeholder="Email" id="email" name="email" type="email" />
+                  <p class="p-margin"></p>
                 </div>
                 <input class="btn btn-lg btn-danger btn-block" type="submit" id="submit" name="Submit" value="Registrarse" />
                 <br>

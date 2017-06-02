@@ -1,8 +1,4 @@
 <?php
-if (!defined("logout")) {
-    header("Location: index.php");
-    exit();
-}
 session_start();
 unset ($_SESSION['usuario']);
 session_destroy();
