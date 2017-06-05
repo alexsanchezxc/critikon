@@ -1,4 +1,8 @@
 <?php
+if (!defined("conf")) {
+    header("Location: index.php");
+    exit();
+}
 $username = $_SESSION["usuario"];
 $sql = "SELECT * FROM usuarios WHERE Usuario = '$username'";
 $result = $conn->query($sql);
@@ -10,19 +14,15 @@ if ($result->num_rows > 0) {
     $apellidos = $_POST['apellidos'];
     $usuario = $_POST['usuario'];
     $email = $_POST['email'];
-    $date = date('Y-m-d');
 
     // NOTE: Comprobamos si el usuario existe
     $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR Email = '$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-      $sql = "UPDATE usuarios SET Nombre = '$nombre', Apellidos = '$apellidos', Usuario = '$usuario', Email = '$email', Fecha_Registro = '$date' WHERE Usuario = '$username'";
+      $sql = "UPDATE usuarios SET Nombre = '$nombre', Apellidos = '$apellidos', Usuario = '$usuario', Email = '$email' WHERE Usuario = '$username'";
       if (mysqli_query($conn, $sql)) {
-        /*
-        header("Location: index.php");
-        exit();
-        */
+         echo '<meta http-equiv="refresh" content="5" />';
       } else {
         echo '<div class="alert alert-danger alert-dismissable">';
         echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
@@ -41,18 +41,22 @@ if ($result->num_rows > 0) {
   <form action="perfil.php" method="post">
     <fieldset>
       <div class="form-group">
+        Nombre:
         <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $row['Nombre'] ?>" type="text" />
         <p class="p-margin"></p>
       </div>
       <div class="form-group">
+        Apellidos:
         <input class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" value="<?php echo $row['Apellidos'] ?>" type="text" />
         <p class="p-margin"></p>
       </div>
       <div class="form-group">
+        Usuario:
         <input class="form-control" placeholder="Usuario" id="usuario" name="usuario" value="<?php echo $row['Usuario'] ?>" type="text" />
         <p class="p-margin"></p>
       </div>
       <div class="form-group">
+        Email:
         <input class="form-control" placeholder="Email" id="email" name="email" value="<?php echo $row['Email'] ?>" type="email" />
         <p class="p-margin"></p>
       </div>
