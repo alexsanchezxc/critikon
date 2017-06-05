@@ -1,0 +1,22 @@
+.tabs-left {
+  border-bottom: none;
+}
+
+.tabs-left li {
+  text-shadow: inherit;
+  float: none;
+  margin-bottom: 1%;
+  padding: 1%;
+}
+
+.tabs-left li>a {
+  font-weight: bold;
+  border-radius: 5px;
+  display: block;
+}
+
+.tabs-left li>a:hover {
+  color: var(--color4);
+  background-color: var(--color2);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}

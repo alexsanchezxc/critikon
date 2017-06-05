@@ -20,11 +20,11 @@ session_start();
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <script src="../js/validacion.js" charset="utf-8"></script>
   <?php
   define("scripts", 1);
   include('scripts.php');
   ?>
-  <script src="../js/validacion.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -76,7 +76,7 @@ session_start();
             <form id="registro" action="registro.php" method="post">
               <fieldset>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" type="text" />
+                  <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" type="text" autofocus/>
                   <p class="p-margin"></p>
                 </div>
                 <div class="form-group">
@@ -99,9 +99,9 @@ session_start();
                   <input class="form-control" placeholder="Email" id="email" name="email" type="email" />
                   <p class="p-margin"></p>
                 </div>
-                <input class="btn btn-lg btn-danger btn-block" type="submit" id="submit" name="Submit" value="Registrarse" />
+                <input class="btn btn-lg btn-sample btn-block" type="submit" id="submit" name="Submit" value="Registrarse" />
                 <br>
-                <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-danger btn-block" type="button" name="Volver" value="Volver atrás" /></a>
+                <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-sample btn-block" type="button" name="Volver" value="Volver atrás" /></a>
               </fieldset>
             </form>
           </div>

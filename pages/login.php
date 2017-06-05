@@ -20,9 +20,9 @@ session_start();
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <?php 
+  <?php
   define("scripts", 1);
-  include('scripts.php'); 
+  include('scripts.php');
   ?>
 </head>
 
@@ -83,9 +83,9 @@ session_start();
                   </div>
                   <!-- Change this to a button or input when using this as a form -->
                   <!--<a href="index.php" class="btn btn-lg btn-success btn-block">Login</a>-->
-                  <input class="btn btn-lg btn-danger btn-block" type="submit" name="Submit" value="Login" />
+                  <input class="btn btn-lg btn-sample btn-block" type="submit" name="Submit" value="Login" />
                   <br>
-                  <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-danger btn-block" type="button" name="Volver" value="Volver atrás" /></a>
+                  <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-sample btn-block" type="button" name="Volver" value="Volver atrás" /></a>
                 </fieldset>
               </form>
             </div>

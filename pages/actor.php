@@ -14,13 +14,16 @@ echo '<th>Nombre</th>';
 echo '</tr>';
 echo '</thead>';
 echo '<tbody>';
-for ($i=0; $i < 12;) {
+for ($i=0; $i < count($credits['cast']);) {
   echo '<tr>';
   echo '<td><img class="actor" src="../assets/actor.png" style="background-image: url('.$img.@$credits['cast'][$i]['profile_path'].');"></td>';
   echo '<td>'.@$credits['cast'][$i]['character'].'</td>';
   echo '<td>'.@$credits['cast'][$i]['name'].'</td>';
   echo '</tr>';
   $i = $i + 2;
+  if ($i >= 12) {
+    break;
+  }
 }
 echo '</tbody>';
 echo '</table>';
@@ -37,13 +40,16 @@ echo '<th>Nombre</th>';
 echo '</tr>';
 echo '</thead>';
 echo '<tbody>';
-for ($i=1; $i < 12;) {
+for ($i=1; $i < count($credits['cast']);) {
   echo '<tr>';
   echo '<td><img class="actor" src="../assets/actor.png" style="background-image: url('.$img.@$credits['cast'][$i]['profile_path'].');"></td>';
   echo '<td>'.@$credits['cast'][$i]['character'].'</td>';
   echo '<td>'.@$credits['cast'][$i]['name'].'</td>';
   echo '</tr>';
   $i = $i + 2;
+  if ($i >= 12) {
+    break;
+  }
 }
 echo '</tbody>';
 echo '</table>';

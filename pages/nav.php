@@ -29,10 +29,7 @@ if (!defined("nav")){
             echo '</a>';
             echo '<ul class="dropdown-menu dropdown-user">';
             echo '<li>';
-            echo '<a href="#"><i class="fa fa-user fa-fw"></i> Perfil</a>';
-            echo '</li>';
-            echo '<li>';
-            echo '<a href="configuracion.php"><i class="fa fa-gear fa-fw"></i> Configuración del perfil</a>';
+            echo '<a href="perfil.php"><i class="fa fa-user fa-fw"></i> Perfil</a>';
             echo '</li>';
             echo '<li class="divider"></li>';
             echo '<li>';
