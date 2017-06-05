@@ -3,8 +3,8 @@ if (!defined("conf")) {
     header("Location: index.php");
     exit();
 }
-$username = $_SESSION["usuario"];
-$sql = "SELECT * FROM usuarios WHERE Usuario = '$username'";
+$username = $_SESSION["idUsuario"];
+$sql = "SELECT * FROM usuarios WHERE Id_Usuario = '$username'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -20,9 +20,9 @@ if ($result->num_rows > 0) {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-      $sql = "UPDATE usuarios SET Nombre = '$nombre', Apellidos = '$apellidos', Usuario = '$usuario', Email = '$email' WHERE Usuario = '$username'";
+      $sql = "UPDATE usuarios SET Nombre = '$nombre', Apellidos = '$apellidos', Usuario = '$usuario', Email = '$email' WHERE Id_Usuario = '$username'";
       if (mysqli_query($conn, $sql)) {
-         echo '<meta http-equiv="refresh" content="5" />';
+         echo '<meta http-equiv="refresh" content="0;URL=perfil.php">';
       } else {
         echo '<div class="alert alert-danger alert-dismissable">';
         echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';

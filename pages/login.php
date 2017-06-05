@@ -47,6 +47,7 @@ session_start();
                   $year = time() + 31536000;
                   setcookie('remember_me', $username, $year);
                   $_SESSION['usuario'] = $row["Usuario"];
+                  $_SESSION['idUsuario'] = $row["Id_Usuario"];
                   header("Location: index.php");
                   exit();
                 } else {
