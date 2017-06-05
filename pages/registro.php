@@ -20,11 +20,11 @@ session_start();
   <link href="../css/master.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <script src="../js/validacion.js" charset="utf-8"></script>
   <?php
   define("scripts", 1);
   include('scripts.php');
   ?>
+  <script src="../js/validacion.js" charset="utf-8"></script>
 </head>
 
 <body>
