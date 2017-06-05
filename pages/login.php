@@ -32,9 +32,9 @@ session_start();
       <div class="col-md-6 col-md-offset-3">
         <div class="login-panel panel panel-default">
           <?php
-          define("conn", 1);
           if (!isset($_SESSION["usuario"])) {
             if (isset($_REQUEST['Submit'])) {
+              define("conn", 1);
               include("conexion.php");
               $username = $_POST['usuario'];
               $password = $_POST['password'];
