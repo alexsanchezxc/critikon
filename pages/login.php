@@ -81,8 +81,6 @@ session_start();
                       <input name="remember" type="checkbox" value="Remember_Me"/>Recordarme
                     </label>
                   </div>
-                  <!-- Change this to a button or input when using this as a form -->
-                  <!--<a href="index.php" class="btn btn-lg btn-success btn-block">Login</a>-->
                   <input class="btn btn-lg btn-sample btn-block" type="submit" name="Submit" value="Login" />
                   <br>
                   <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-sample btn-block" type="button" name="Volver" value="Volver atrás" /></a>

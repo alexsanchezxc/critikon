@@ -25,6 +25,7 @@ include("conexion.php");
   <link href="../css/tabs.css" rel="stylesheet">
   <!-- NOTE: Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <script src="../js/validacion.js" charset="utf-8"></script>
   <?php
   define("scripts", 1);
   include('scripts.php');
@@ -53,7 +54,6 @@ include("conexion.php");
       echo '</div>';
       echo '<div class="row">';
       foreach($movies as $movie){
-        define("movies", 1);
         include('movies.php');
       }
       echo '</div>';
@@ -76,7 +76,7 @@ include("conexion.php");
         <div class="col-sm-9">
           <div class="tab-content">
             <div class="tab-pane active" id="configuracion">
-              <?php include('perfil/configuracion.php'); ?>
+              <?php include('configuracion.php'); ?>
             </div>
             <div class="tab-pane" id="seguridad">
 
