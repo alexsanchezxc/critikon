@@ -1,4 +1,5 @@
 <?php
+session_start();
 @$idMovie = $_GET['id'];
 if ($idMovie == "") {
     header("Location: index.php");

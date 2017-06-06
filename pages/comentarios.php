@@ -1,12 +1,7 @@
 <?php
-session_start();
-if (!defined("comentarios")) {
-    header("Location: index.php");
-    exit();
-}
 define("conn", 1);
 include("conexion.php");
-$username = $_SESSION["idUsuario"];
+@$username = $_SESSION["idUsuario"];
 ?>
 <form method="post">
   <div class="form-group">
@@ -24,24 +19,18 @@ if (isset($_POST['comentar'])) {
     echo '<meta http-equiv="refresh" content="0">';
     exit();
   } else {
-    echo '<div class="alert alert-danger alert-dismissable">';
-    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
-    echo '</div>';
+
   }
   mysqli_close($conn);
 } elseif (isset($_POST['reply'])) {
   $comentario = $_POST['comentario'];
-  $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario, Reply) VALUES ('$username', '$idMovie', '$comentario', NOW(), '".$_GET['Id_Comentario']."')";
+  $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario, Reply) VALUES ('$username', '$idMovie', '$comentario', NOW(), '".$_GET['id']."')";
 
   if (mysqli_query($conn, $sql)) {
     echo '<meta http-equiv="refresh" content="0">';
     exit();
   } else {
-    echo '<div class="alert alert-danger alert-dismissable">';
-    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-    echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
-    echo '</div>';
+
   }
   mysqli_close($conn);
 }
