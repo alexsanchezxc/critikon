@@ -5,19 +5,19 @@
 
 .carousel {
     margin-bottom: 0;
-    padding: 0 40px 30px 40px;
+    padding: 10px 25px 30px 25px;
+    background-color: #a94442;
 }
+
 
 /* The controlsy */
 
 .carousel-control {
     left: -12px;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 50px;
     background: none repeat scroll 0 0 #222222;
-    border: 4px solid #FFFFFF;
-    border-radius: 23px 23px 23px 23px;
-    margin-top: 90px;
+    margin-top: 150px;
 }
 
 .carousel-control.right {
@@ -30,7 +30,7 @@
 .carousel-indicators {
     right: 50%;
     top: auto;
-    bottom: -10px;
+    bottom: -15px;
     margin-right: -19px;
 }
 
@@ -42,5 +42,38 @@
 }
 
 .carousel-indicators .active {
-    background: #428bca;
+    background: black;
+}
+
+.back {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.back:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: block;
+    border-radius: 5px 5px 0px 0px;
+    filter: opacity(30%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tituloi {
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.thumbnail {
+    margin-bottom: 10px;
 }

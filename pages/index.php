@@ -67,6 +67,7 @@ include('../lib/tmdb-api.php');
         echo '</div>';*/
 
         echo '<div class="container">';
+            echo '<h3 class="page-header">En Cartelera Hoy</h3>';
             echo '<div class="row">';
 		            echo '<div class="col-md-12">';
                     echo '<div id="Carousel" class="carousel slide">';
@@ -74,18 +75,20 @@ include('../lib/tmdb-api.php');
                               echo '<li data-target="#Carousel" data-slide-to="0" class="active"></li>';
                               echo '<li data-target="#Carousel" data-slide-to="1"></li>';
                               echo '<li data-target="#Carousel" data-slide-to="2"></li>';
+                              echo '<li data-target="#Carousel" data-slide-to="3"></li>';
+                              echo '<li data-target="#Carousel" data-slide-to="4"></li>';
                           echo '</ol>';
                   
                           echo '<div class="carousel-inner">';
                               echo '<div class="item active">';
                                       echo '<div class="row">';
-                                      echo '<div class="col-md-4" style="width: 100%;"><a href="#" class="thumbnail"><img src="../assets/poster.png"" alt="'.$movies[0]->getTitle().'" style="background-image: url('.$img.$movies[0]->getPoster().');height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;" /></a></div>';
+                                      echo '<div class="col-md-4" style="width: 100%"><a id="back" href="#" class="thumbnail" style="background-image: url('. $img.$movies[0]->get('backdrop_path') .');"><img src="'.$img.$movies[0]->getPoster().'" alt="'.$movies[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /></a><a id="tituloi">'.$movies[0]->getTitle().'</a></div>';
                                       echo '</div>';
                                   echo '</div>';
                               for ($i = 1; $i < 5; $i++){
                                   echo '<div class="item">';
                                       echo '<div class="row">';
-                                      echo '<div class="col-md-4" style="width: 100%;"><a href="#" class="thumbnail"><img src="../assets/poster.png"" alt="'.$movies[$i]->getTitle().'" style="background-image: url('.$img.$movies[$i]->getPoster().');height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;" /></a></div>';
+                                      echo '<div class="col-md-4" style="width: 100%;"><a id="back" href="#" class="thumbnail" style="background-image: url('. $img.$movies[$i]->get('backdrop_path') .');"><img src="'.$img.$movies[$i]->getPoster().'" alt="'.$movies[$i]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /></a><a id="tituloi">'.$movies[$i]->getTitle().'</a></div>';
                                       echo '</div>';
                                   echo '</div>';
                               }

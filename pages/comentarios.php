@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!defined("comentarios")) {
+    header("Location: index.php");
+    exit();
+}
 define("conn", 1);
 include("conexion.php");
 $username = $_SESSION["idUsuario"];
