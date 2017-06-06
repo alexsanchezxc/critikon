@@ -1,7 +1,7 @@
 <?php
 define("conn", 1);
 include("conexion.php");
-@$username = $_SESSION["idUsuario"];
+$username = $_SESSION["idUsuario"];
 ?>
 <form method="post">
   <div class="form-group">
@@ -14,34 +14,25 @@ include("conexion.php");
 if (isset($_POST['comentar'])) {
   $comentario = $_POST['comentario'];
   $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario) VALUES ('$username', '$idMovie', '$comentario', NOW())";
-
   if (mysqli_query($conn, $sql)) {
     echo '<meta http-equiv="refresh" content="0">';
-    exit();
-  } else {
-
   }
-  mysqli_close($conn);
-} elseif (isset($_POST['reply'])) {
+}
+if (isset($_POST['reply'])) {
   $comentario = $_POST['comentario'];
   $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario, Reply) VALUES ('$username', '$idMovie', '$comentario', NOW(), '".$_GET['id']."')";
-
   if (mysqli_query($conn, $sql)) {
     echo '<meta http-equiv="refresh" content="0">';
-    exit();
-  } else {
-
   }
-  mysqli_close($conn);
 }
 ?>
-<div class="container">
-  <ul class="list-unstyled">
+<div id="container">
+  <ul id="comments">
     <?php
-    $comentarios = mysql_query("SELECT * FROM comentarios WHERE Reply = 0 AND Id_Pelicula = '$idMovie' ORDER BY Id_Comentario DESC");
-    while($row=mysql_fetch_array($comentarios)) {
-      $usuario = mysql_query("SELECT * FROM usuarios WHERE Id_Usuario = '".$row['Id_Usuario']."'");
-      $user = mysql_fetch_array($usuario);
+    $comentarios = mysqli_query($conn, "SELECT * FROM comentarios WHERE Reply = 0 AND Id_Pelicula = '$idMovie' ORDER BY Id_Comentario DESC");
+    while($row = mysqli_fetch_array($comentarios)) {
+      $usuario = mysqli_query($conn, "SELECT * FROM usuarios WHERE Id_Usuario = '".$row['Id_Usuario']."'");
+      $user = mysqli_fetch_array($usuario);
       ?>
       <li class="cmmnt">
         <div class="avatar">
@@ -61,12 +52,12 @@ if (isset($_POST['comentar'])) {
           </span>
         </div>
         <?php
-        $contar = mysql_num_rows(mysql_query("SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."'"));
+        $contar = mysqli_num_rows(mysql_query($conn, "SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."'"));
         if($contar != '0') {
-          $reply = mysql_query("SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."' ORDER BY id DESC");
-          while($rep=mysql_fetch_array($reply)) {
-            $usuario2 = mysql_query("SELECT * FROM usuarios WHERE Id_Usuario = '".$rep['Id_Usuario']."'");
-            $user2 = mysql_fetch_array($usuario2);
+          $reply = mysqli_query($conn, "SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."' ORDER BY Id_Comentario DESC");
+          while($rep=mysqli_fetch_array($reply)) {
+            $usuario2 = mysqli_query($conn, "SELECT * FROM usuarios WHERE Id_Usuario = '".$rep['Id_Usuario']."'");
+            $user2 = mysqli_fetch_array($usuario2);
             ?>
             <ul class="replies">
               <li class="cmmnt">

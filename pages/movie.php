@@ -25,6 +25,7 @@ include('../lib/tmdb-api.php');
     <!-- NOTE: Custom CSS -->
     <link id="pageColor" href="../css/white.css" rel="stylesheet">
     <link href="../css/master.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/comentarios.css">
     <!-- NOTE: Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <?php
