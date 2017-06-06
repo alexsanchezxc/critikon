@@ -13,3 +13,4 @@ if (!defined("scripts")){
 <!-- NOTE: Custom Theme JavaScript -->
 <script src="../js/master.js"></script>
 <script src="../js/jquery.js"></script>
+<script src="../js/slideshow.js"></script>
