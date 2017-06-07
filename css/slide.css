@@ -30,8 +30,7 @@
 
 .carousel-indicators {
     right: 50%;
-    top: auto;
-    bottom: 35px;
+    top: 420px;
     margin-right: -19px;
 }
 
@@ -88,10 +87,4 @@
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.7);
     font-size: 18px;
-}
-
-@media (max-width: 405px) {
-    .carousel-indicators {
-        bottom: 45px;
-    }
 }

@@ -70,7 +70,7 @@ include('../lib/tmdb-api.php');
         echo '</div>';*/
 
         echo '<div class="container">';
-              echo '<h3 class="page-header">En Cartelera Hoy</h3>';
+              echo '<h3 class="page-header"><a href="playingMovies.php" style="text-decoration: none;color: inherit">En Cartelera Hoy</a></h3>';
               echo '<div class="row">';
 		            echo '<div class="col-md-12">';
                     echo '<div id="Carousel" class="carousel slide">';
@@ -85,13 +85,25 @@ include('../lib/tmdb-api.php');
                           echo '<div class="carousel-inner">';
                               echo '<div class="item active">';
                                       echo '<div class="row">';
-                                      echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviesn[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesn[0]->get('backdrop_path') .');"><img src="'.$img.$moviesn[0]->getPoster().'" alt="'.$moviesn[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesn[0]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesn[0]->getTitle().'">'.$moviesn[0]->getTitle().'</a></div>';
+                                      echo '<div class="col-md-4" style="width: 100%;text-align: center;">
+                                                  <a id="back" href="movie.php?id='.$moviesn[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesn[0]->get('backdrop_path') .');">
+                                                        <img src="'.$img.$moviesn[0]->getPoster().'" alt="'.$moviesn[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />
+                                                        <span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesn[0]->getVoteAverage().'&nbsp</span>
+                                                  </a>
+                                                  <a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesn[0]->getTitle().'">'.$moviesn[0]->getTitle().'</a>
+                                            </div>';
                                       echo '</div>';
                                   echo '</div>';
                               for ($i = 1; $i < 5; $i++){
                                   echo '<div class="item">';
                                       echo '<div class="row">';
-                                      echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviesn[$i]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesn[$i]->get('backdrop_path') .');"><img src="'.$img.$moviesn[$i]->getPoster().'" alt="'.$moviesn[$i]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesn[$i]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesn[$i]->getTitle().'">'.$moviesn[$i]->getTitle().'</a></div>';
+                                      echo '<div class="col-md-4" style="width: 100%;text-align: center;">
+                                                  <a id="back" href="movie.php?id='.$moviesn[$i]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesn[$i]->get('backdrop_path') .');">
+                                                          <img src="'.$img.$moviesn[$i]->getPoster().'" alt="'.$moviesn[$i]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />
+                                                          <span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesn[$i]->getVoteAverage().'&nbsp</span>
+                                                  </a>
+                                                  <a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesn[$i]->getTitle().'">'.$moviesn[$i]->getTitle().'</a>
+                                            </div>';
                                       echo '</div>';
                                   echo '</div>';
                               }
@@ -106,7 +118,7 @@ include('../lib/tmdb-api.php');
         echo '</div>';
           
         echo '<div class="container">';
-              echo '<h3 class="page-header">Popular actualmente</h3>';
+              echo '<h3 class="page-header"><a href="popularMovies.php" style="text-decoration: none;color: inherit">Populares actualmente</a></h3>';
               echo '<div class="row">';
                     echo '<div class="col-md-12">';
                           echo '<div id="Carousel2" class="carousel slide">';
@@ -121,14 +133,26 @@ include('../lib/tmdb-api.php');
                                 echo '<div class="carousel-inner">';
                                       echo '<div class="item active">';
                                             echo '<div class="row">';
-                                                  echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviesp[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesp[0]->get('backdrop_path') .');"><img src="'.$img.$moviesp[0]->getPoster().'" alt="'.$moviesp[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesp[0]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesp[0]->getTitle().'">'.$moviesp[0]->getTitle().'</a></div>';
+                                                  echo '<div class="col-md-4" style="width: 100%;text-align: center;">
+                                                              <a id="back" href="movie.php?id='.$moviesp[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesp[0]->get('backdrop_path') .');">
+                                                                    <img src="'.$img.$moviesp[0]->getPoster().'" alt="'.$moviesp[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />
+                                                                    <span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesp[0]->getVoteAverage().'&nbsp</span>
+                                                              </a>
+                                                              <a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesp[0]->getTitle().'">'.$moviesp[0]->getTitle().'</a>
+                                                        </div>';
                                             echo '</div>';
                                       echo '</div>';
                                     
                                       for ($o = 1; $o < 5; $o++){
                                             echo '<div class="item">';
                                                   echo '<div class="row">';
-                                                        echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviesp[$o]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesp[$o]->get('backdrop_path') .');"><img src="'.$img.$moviesp[$o]->getPoster().'" alt="'.$moviesp[$o]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesp[$o]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesp[$o]->getTitle().'">'.$moviesp[$o]->getTitle().'</a></div>';
+                                                        echo '<div class="col-md-4" style="width: 100%;text-align: center;">
+                                                                  <a id="back" href="movie.php?id='.$moviesp[$o]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesp[$o]->get('backdrop_path') .');">
+                                                                        <img src="'.$img.$moviesp[$o]->getPoster().'" alt="'.$moviesp[$o]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />
+                                                                        <span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesp[$o]->getVoteAverage().'&nbsp</span>
+                                                                  </a>
+                                                                  <a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesp[$o]->getTitle().'">'.$moviesp[$o]->getTitle().'</a>
+                                                              </div>';
                                                   echo '</div>';
                                             echo '</div>';
                                       }
@@ -143,7 +167,7 @@ include('../lib/tmdb-api.php');
         echo '</div>';
 
         echo '<div class="container">';
-              echo '<h3 class="page-header">Próximamente</h3>';
+              echo '<h3 class="page-header"><a href="upcomingMovies.php" style="text-decoration: none;color: inherit">Próximamente</a></h3>';
               echo '<div class="row">';
                     echo '<div class="col-md-12">';
                           echo '<div id="Carousel3" class="carousel slide">';
@@ -158,7 +182,12 @@ include('../lib/tmdb-api.php');
                                 echo '<div class="carousel-inner">';
                                       echo '<div class="item active">';
                                             echo '<div class="row">';
-                                                  echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviesu[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesu[0]->get('backdrop_path') .');"><img src="'.$img.$moviesu[0]->getPoster().'" alt="'.$moviesu[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesu[0]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesu[0]->getTitle().'">'.$moviesu[0]->getTitle().'</a></div>';
+                                                  echo '<div class="col-md-4" style="width: 100%;text-align: center;">
+                                                              <a id="back" href="movie.php?id='.$moviesu[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesu[0]->get('backdrop_path') .');">
+                                                                    <img src="'.$img.$moviesu[0]->getPoster().'" alt="'.$moviesu[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />
+                                                                    <span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesu[0]->getVoteAverage().'&nbsp</span>
+                                                              </a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesu[0]->getTitle().'">'.$moviesu[0]->getTitle().'</a>
+                                                        </div>';
                                             echo '</div>';
                                       echo '</div>';
                                     
@@ -180,7 +209,7 @@ include('../lib/tmdb-api.php');
         echo '</div>';
 
         echo '<div class="container">';
-              echo '<h3 class="page-header">Mejor Valoradas</h3>';
+              echo '<h3 class="page-header"><a href="topratedMovies.php" style="text-decoration: none;color: inherit">Mejor Valoradas</a></h3>';
               echo '<div class="row">';
                     echo '<div class="col-md-12">';
                           echo '<div id="Carousel4" class="carousel slide">';
@@ -195,14 +224,26 @@ include('../lib/tmdb-api.php');
                                 echo '<div class="carousel-inner">';
                                       echo '<div class="item active">';
                                             echo '<div class="row">';
-                                                  echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviest[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviest[0]->get('backdrop_path') .');"><img src="'.$img.$moviest[0]->getPoster().'" alt="'.$moviest[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviest[0]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviest[0]->getTitle().'">'.$moviest[0]->getTitle().'</a></div>';
+                                                  echo '<div class="col-md-4" style="width: 100%;text-align: center;">
+                                                              <a id="back" href="movie.php?id='.$moviest[0]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviest[0]->get('backdrop_path') .');">
+                                                                    <img src="'.$img.$moviest[0]->getPoster().'" alt="'.$moviest[0]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />
+                                                                    <span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviest[0]->getVoteAverage().'&nbsp</span>
+                                                              </a>
+                                                              <a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviest[0]->getTitle().'">'.$moviest[0]->getTitle().'</a>
+                                                       </div>';
                                             echo '</div>';
                                       echo '</div>';
                                     
                                       for ($a = 1; $a < 5; $a++){
                                             echo '<div class="item">';
                                                   echo '<div class="row">';
-                                                        echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviest[$a]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviest[$a]->get('backdrop_path') .');"><img src="'.$img.$moviest[$a]->getPoster().'" alt="'.$moviest[$a]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviest[$a]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviest[$a]->getTitle().'">'.$moviest[$a]->getTitle().'</a></div>';
+                                                        echo '<div class="col-md-4" style="width: 100%;text-align: center;">';
+                                                              echo '<a id="back" href="movie.php?id='.$moviest[$a]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviest[$a]->get('backdrop_path') .');">';
+                                                                    echo '<img src="'.$img.$moviest[$a]->getPoster().'" alt="'.$moviest[$a]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />';
+                                                                    echo '<span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviest[$a]->getVoteAverage().'&nbsp</span>';
+                                                              echo '</a>';
+                                                              echo '<a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviest[$a]->getTitle().'">'.$moviest[$a]->getTitle().'</a>';
+                                                        echo '</div>';
                                                   echo '</div>';
                                             echo '</div>';
                                       }
