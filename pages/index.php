@@ -194,7 +194,13 @@ include('../lib/tmdb-api.php');
                                       for ($u = 1; $u < 5; $u++){
                                             echo '<div class="item">';
                                                   echo '<div class="row">';
-                                                        echo '<div class="col-md-4" style="width: 100%;text-align: center;"><a id="back" href="movie.php?id='.$moviesu[$u]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesu[$u]->get('backdrop_path') .');"><img src="'.$img.$moviesu[$u]->getPoster().'" alt="'.$moviesu[$u]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" /><span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesu[$u]->getVoteAverage().'&nbsp</span></a><a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesu[$u]->getTitle().'">'.$moviesu[$u]->getTitle().'</a></div>';
+                                                        echo '<div class="col-md-4" style="width: 100%;text-align: center;">
+                                                                    <a id="back" href="movie.php?id='.$moviesu[$u]->getID().'" class="thumbnail" style="background-image: url('. $img.$moviesu[$u]->get('backdrop_path') .');">
+                                                                            <img src="'.$img.$moviesu[$u]->getPoster().'" alt="'.$moviesu[$u]->getTitle().'" style="height: 370px;background-size: 250px;background-repeat: no-repeat;background-position: center;border: 1px solid black;" />
+                                                                            <span id="puntos"><i class="fa fa-star fa-fw"></i>'.$moviesu[$u]->getVoteAverage().'&nbsp</span>
+                                                                    </a>
+                                                                    <a id="tituloi" data-toggle="tooltip" data-placement="bottom" title="'.$moviesu[$u]->getTitle().'">'.$moviesu[$u]->getTitle().'</a>
+                                                              </div>';
                                                   echo '</div>';
                                             echo '</div>';
                                       }
