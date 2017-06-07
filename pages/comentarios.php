@@ -2,27 +2,32 @@
 define("conn", 1);
 include("conexion.php");
 $username = $_SESSION["idUsuario"];
+// NOTE: Guardamos la id de la pelicula en la base de datos
+$getMovie = $tmdb->getMovie($idMovie);
+$movie = $getMovie->getTitle();
+$sql = "INSERT IGNORE INTO peliculas (Id_Pelicula, Pelicula) VALUES ('$idMovie', '$movie')";
+mysqli_query($conn, $sql);
 ?>
 <form method="post">
   <div class="form-group">
     <label for="comentario">Comentar:</label>
     <textarea class="form-control" rows="5" name="comentario" id="comentario"><?php if(isset($_GET['user'])) { ?>@<?php echo $_GET['user']; ?><?php } ?> </textarea>
   </div>
-  <input class="btn btn-lg btn-sample btn-block" type="submit" id="submit" <?php if (isset($_GET['id'])) { ?>name="reply"<?php } else { ?>name="comentar"<?php } ?> value="Comentar" />
+  <input class="btn btn-lg btn-sample btn-block" type="submit" id="submit" <?php if (isset($_GET['idC'])) { ?>name="reply"<?php } else { ?>name="comentar"<?php } ?> value="Comentar" />
 </form>
 <?php
 if (isset($_POST['comentar'])) {
   $comentario = $_POST['comentario'];
   $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario) VALUES ('$username', '$idMovie', '$comentario', NOW())";
   if (mysqli_query($conn, $sql)) {
-    echo '<meta http-equiv="refresh" content="0">';
+    echo '<meta http-equiv="refresh" content="0;URL=movie.php?id='.$idMovie.'">';
   }
 }
 if (isset($_POST['reply'])) {
   $comentario = $_POST['comentario'];
-  $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario, Reply) VALUES ('$username', '$idMovie', '$comentario', NOW(), '".$_GET['id']."')";
+  $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario, Reply) VALUES ('$username', '$idMovie', '$comentario', NOW(), '".$_GET['idC']."')";
   if (mysqli_query($conn, $sql)) {
-    echo '<meta http-equiv="refresh" content="0">';
+    echo '<meta http-equiv="refresh" content="0;URL=movie.php?id='.$idMovie.'">';
   }
 }
 ?>
@@ -46,13 +51,13 @@ if (isset($_POST['reply'])) {
             <?php echo $row['Comentario']; ?>
           </p>
           <span>
-            <a href="index.php?user=<?php echo $user['Usuario']; ?>&id=<?php echo $row['Id_Comentario']; ?>">
+            <a href="movie.php?id=<?php echo $idMovie ?>&user=<?php echo $user['Usuario']; ?>&idC=<?php echo $row['Id_Comentario']; ?>">
               Responder
             </a>
           </span>
         </div>
         <?php
-        $contar = mysqli_num_rows(mysql_query($conn, "SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."'"));
+        $contar = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."'"));
         if($contar != '0') {
           $reply = mysqli_query($conn, "SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."' ORDER BY Id_Comentario DESC");
           while($rep=mysqli_fetch_array($reply)) {
@@ -74,7 +79,11 @@ if (isset($_POST['reply'])) {
                 </div>
               </li>
             </ul>
-            <?php } } } ?>
-          </li>
-        </ul>
-      </div>
+            <?php
+          }
+        }
+      }
+      ?>
+    </li>
+  </ul>
+</div>
