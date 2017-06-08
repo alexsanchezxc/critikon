@@ -60,14 +60,9 @@ function validarEmail() {
 
 function validarPassword1() {
   var elemento = document.getElementById("tlfn");
-  if ($("#password1").val().length < 5 || $("#password1").val().length > 12) {
+  if (!$("#password1").val().match(/^\w{5,12}$/)) {
     $("#password1").next().html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
-      '<strong>La contraseña debe ser entre 5 y 12 caracteres.</strong>' +
-      '</div>');
-    return false;
-  } else if (!$("#password1").val().match(/^[0-9a-zA-Z]+$/)) {
-    $("#password1").next().html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
-      '<strong>La contraseña debe contener números y letras.</strong>' +
+      '<strong>La contraseña debe contener números y letras. Y tener entre 5 y 12 caracteres.</strong>' +
       '</div>');
     return false;
   } else {
