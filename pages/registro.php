@@ -44,12 +44,13 @@ session_start();
               $password2 = $_POST['password2'];
               $email = $_POST['email'];
               $date = date('Y-m-d');
+              $avatar = "../assets/avatar.png"
               // NOTE: Comprobamos si el usuario existe
               $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR Email = '$email'";
               $result = $conn->query($sql);
               if ($result->num_rows == 0) {
-                $sql = "INSERT INTO usuarios (Nombre, Apellidos, Usuario, Pass, Email, Fecha_Registro)
-                VALUES ('$nombre', '$apellidos', '$usuario', sha1('$password1'), '$email', '$date')";
+                $sql = "INSERT INTO usuarios (Nombre, Apellidos, Usuario, Pass, Email, Fecha_Registro, Avatar)
+                VALUES ('$nombre', '$apellidos', '$usuario', sha1('$password1'), '$email', '$date', '$avatar')";
                 if (mysqli_query($conn, $sql)) {
                   header("Location: index.php");
                   exit();

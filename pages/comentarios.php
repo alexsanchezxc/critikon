@@ -1,3 +1,4 @@
+<br>
 <?php
 if (isset($_SESSION["idUsuario"])){
   define("conn", 1);
@@ -7,20 +8,35 @@ if (isset($_SESSION["idUsuario"])){
   $getMovie = $tmdb->getMovie($idMovie);
   $movie = $getMovie->getTitle();
   $sql = "INSERT IGNORE INTO peliculas (Id_Pelicula, Pelicula) VALUES ('$idMovie', '$movie')";
-  mysqli_query($conn, $sql);
+  if (!mysqli_query($conn, $sql)) {
+    echo '<div class="alert alert-danger alert-dismissable">';
+    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+    echo '<strong>Ups! Ha ocurrido un error.</strong>';
+    echo '</div>';
+  }
 
   if (isset($_POST['comentar'])) {
     $comentario = $_POST['comentario'];
     $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario) VALUES ('$username', '$idMovie', '$comentario', NOW())";
-    if (mysqli_query($conn, $sql)) {
-      echo '<meta http-equiv="refresh" content="0;URL=movie.php?id='.$idMovie.'">';
+    if (!mysqli_query($conn, $sql)) {
+      echo '<div class="alert alert-danger alert-dismissable">';
+      echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+      echo '<strong>Ups! Ha ocurrido un error.</strong>';
+      echo '</div>';
+    } else {
+      echo '<meta http-equiv="refresh" content="0;">';
     }
   }
   if (isset($_POST['reply'])) {
     $comentario = $_POST['comentario'];
     $sql = "INSERT INTO comentarios (Id_Usuario, Id_Pelicula, Comentario, Fecha_Comentario, Reply) VALUES ('$username', '$idMovie', '$comentario', NOW(), '".$_GET['idC']."')";
-    if (mysqli_query($conn, $sql)) {
-      echo '<meta http-equiv="refresh" content="0;URL=movie.php?id='.$idMovie.'">';
+    if (!mysqli_query($conn, $sql)) {
+      echo '<div class="alert alert-danger alert-dismissable">';
+      echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+      echo '<strong>Ups! Ha ocurrido un error.</strong>';
+      echo '</div>';
+    } else {
+      echo '<meta http-equiv="refresh" content="0;">';
     }
   }
   ?>
@@ -35,7 +51,7 @@ if (isset($_SESSION["idUsuario"])){
         ?>
         <li class="cmmnt">
           <div class="avatar">
-            <img src="<?php echo $user['Avatar']; ?>" height="55" width="55">
+            <img class="img-circle" src="<?php echo $user['Avatar']; ?>" height="55" width="55">
           </div>
           <div class="cmmnt-content">
             <header>
@@ -61,7 +77,7 @@ if (isset($_SESSION["idUsuario"])){
               <ul class="replies">
                 <li class="cmmnt">
                   <div class="avatar">
-                    <img src="<?php echo $user2['Avatar']; ?>" src="../assets/avatar.png" height="55" width="55">
+                    <img class="img-circle" src="<?php echo $user2['Avatar']; ?>" height="55" width="55">
                   </div>
                   <div class="cmmnt-content">
                     <header>
@@ -83,10 +99,10 @@ if (isset($_SESSION["idUsuario"])){
   </div>
   <br>
   <div id="container">
-    <form method="post">
+    <form action="#comentarios" method="post">
       <div class="form-group">
         <label for="comentario">Comentar:</label>
-        <textarea class="form-control" rows="5" name="comentario" id="comentario"><?php if(isset($_GET['user'])) { ?>@<?php echo $_GET['user']; ?><?php } ?> </textarea>
+        <textarea class="form-control" rows="5" name="comentario" id="comentario" required><?php if(isset($_GET['user'])) { ?>@<?php echo $_GET['user']; ?><?php } ?></textarea>
       </div>
       <input class="btn btn-lg btn-sample btn-block" type="submit" id="submit" <?php if (isset($_GET['idC'])) { ?>name="reply"<?php } else { ?>name="comentar"<?php } ?> value="Comentar" />
     </form>
@@ -94,6 +110,7 @@ if (isset($_SESSION["idUsuario"])){
   <?php
 } else {
   ?>
+  <br>
   <div id="container">
     <center>
       <a style="text-decoration: none;" href="login.php"><input class="btn btn-sample btn-lg" type="button" name="Volver" value="Conectarse" /></a>

@@ -73,6 +73,7 @@ if ($_SESSION["usuario"]) {
               <ul class="nav nav-tabs tabs-left">
                 <li class="active"><a href="#configuracion" data-toggle="tab">Configuración</a></li>
                 <li><a href="#seguridad" data-toggle="tab">Seguridad</a></li>
+                <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
               </ul>
             </div>
             <div class="col-sm-9">
@@ -84,6 +85,9 @@ if ($_SESSION["usuario"]) {
                   ?>
                 </div>
                 <div class="tab-pane" id="seguridad">
+
+                </div>
+                <div class="tab-pane" id="avatar">
 
                 </div>
               </div>
