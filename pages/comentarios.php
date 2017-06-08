@@ -92,7 +92,7 @@ if (isset($_SESSION["idUsuario"])){
 ?>
 <div id="container">
   <a style="text-decoration: none;" href="login.php"><input class="btn btn-primary btn-sample btn-lg" type="button" name="Volver" value="Conectarse" /></a>
-  <a style="text-decoration: none;" href="login.php"><input class="btn btn-primary btn-sample btn-lg" type="button" name="Volver" value="Registrarse" /></a>
+  <a style="text-decoration: none;" href="registro.php"><input class="btn btn-primary btn-sample btn-lg" type="button" name="Volver" value="Registrarse" /></a>
 </div>
 <?php
 }
