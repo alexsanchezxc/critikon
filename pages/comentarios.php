@@ -91,8 +91,8 @@ if (isset($_SESSION["idUsuario"])){
 } else {
 ?>
 <div id="container">
-  <input class="btn btn-lg btn-sample btn-block" type="submit" id="submit" value="Conectarse" />
-  <input class="btn btn-lg btn-sample btn-block" type="submit" id="submit" value="Registrarse" />
+  <a style="text-decoration: none;" href="login.php"><input class="btn btn-primary btn-sample btn-lg" type="button" name="Volver" value="Conectarse" /></a>
+  <a style="text-decoration: none;" href="login.php"><input class="btn btn-primary btn-sample btn-lg" type="button" name="Volver" value="Registrarse" /></a>
 </div>
 <?php
 }
