@@ -431,3 +431,10 @@ body {
   vertical-align: inherit;
   text-align: center;
 }
+#trailer {
+  padding: 2.5%;
+}
+#trailers {
+  box-shadow: 0 0 15px black;
+  border: 1px solid var(--color);
+}

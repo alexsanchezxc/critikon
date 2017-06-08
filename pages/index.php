@@ -23,19 +23,19 @@ include('../lib/tmdb-api.php');
     <!-- NOTE: Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../css/index.css" rel="stylesheet" type="text/css">
-    <?php 
+    <?php
     define("scripts", 1);
-    include('scripts.php'); 
+    include('scripts.php');
     ?>
   </head>
 
   <body>
     <div id="wrapper">
       <!-- NOTE: Navigation -->
-      <?php 
+      <?php
       define("nav", 1);
       define("movies", 1);
-      include('nav.php'); 
+      include('nav.php');
       ?>
       <div id="page-wrapper">
         <?php
@@ -81,7 +81,7 @@ include('../lib/tmdb-api.php');
                               echo '<li data-target="#Carousel" data-slide-to="3"></li>';
                               echo '<li data-target="#Carousel" data-slide-to="4"></li>';
                           echo '</ol>';
-                  
+
                           echo '<div class="carousel-inner">';
                               echo '<div class="item active">';
                                       echo '<div class="row">';
@@ -116,7 +116,7 @@ include('../lib/tmdb-api.php');
 		              echo '</div>';
 	            echo '</div>';
         echo '</div>';
-          
+
         /*echo '<div class="container">';
               echo '<h3 class="page-header"><a href="popularMovies.php" style="text-decoration: none;color: inherit">Populares actualmente</a></h3>';
               echo '<div class="row">';
@@ -129,7 +129,7 @@ include('../lib/tmdb-api.php');
                                       echo '<li data-target="#Carousel2" data-slide-to="3"></li>';
                                       echo '<li data-target="#Carousel2" data-slide-to="4"></li>';
                                 echo '</ol>';
-                      
+
                                 echo '<div class="carousel-inner">';
                                       echo '<div class="item active">';
                                             echo '<div class="row">';
@@ -142,7 +142,7 @@ include('../lib/tmdb-api.php');
                                                         </div>';
                                             echo '</div>';
                                       echo '</div>';
-                                    
+
                                       for ($o = 1; $o < 5; $o++){
                                             echo '<div class="item">';
                                                   echo '<div class="row">';
@@ -178,7 +178,7 @@ include('../lib/tmdb-api.php');
                                       echo '<li data-target="#Carousel3" data-slide-to="3"></li>';
                                       echo '<li data-target="#Carousel3" data-slide-to="4"></li>';
                                 echo '</ol>';
-                      
+
                                 echo '<div class="carousel-inner">';
                                       echo '<div class="item active">';
                                             echo '<div class="row">';
@@ -190,7 +190,7 @@ include('../lib/tmdb-api.php');
                                                         </div>';
                                             echo '</div>';
                                       echo '</div>';
-                                    
+
                                       for ($u = 1; $u < 5; $u++){
                                             echo '<div class="item">';
                                                   echo '<div class="row">';
@@ -226,7 +226,7 @@ include('../lib/tmdb-api.php');
                                       echo '<li data-target="#Carousel4" data-slide-to="3"></li>';
                                       echo '<li data-target="#Carousel4" data-slide-to="4"></li>';
                                 echo '</ol>';
-                      
+
                                 echo '<div class="carousel-inner">';
                                       echo '<div class="item active">';
                                             echo '<div class="row">';
@@ -239,7 +239,7 @@ include('../lib/tmdb-api.php');
                                                        </div>';
                                             echo '</div>';
                                       echo '</div>';
-                                    
+
                                       for ($a = 1; $a < 5; $a++){
                                             echo '<div class="item">';
                                                   echo '<div class="row">';

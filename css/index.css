@@ -7,7 +7,10 @@
 .carousel {
     margin-bottom: 0;
     padding: 10px 10px 20px 10px;
-    background-color: #721d1d;
+    background-color: rgba(0, 0, 0, 0.30);
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
 }
 
 

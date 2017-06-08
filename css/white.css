@@ -4,6 +4,8 @@
   --color3: rgb(163, 41, 41);
   --color4: rgb(242, 242, 242);
   --page-wrapper: rgb(242, 242, 242);
+  --color: rgb(163, 41, 41);
+  --colorComment: rgb(26, 26, 26);
 }
 
 
@@ -28,7 +30,8 @@
 .btn-sample:hover, .btn-sample:focus, .btn-sample:active, .btn-sample.active {
   color: var(--color3);
   background-color: var(--color4);
-  border-color: inherit;}
+  border-color: inherit;
+}
 
 .btn-sample:active, .btn-sample.active {
   background-image: none;
@@ -37,9 +40,11 @@
 .nav-tabs {
   border-bottom: 1px solid var(--color3);
 }
+
 .nav-tabs>li>a {
   color: var(--color2);
 }
+
 .nav-tabs>li>a:hover {
   border: 1px solid var(--color3);
 }
