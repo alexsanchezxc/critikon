@@ -1,10 +1,6 @@
 <?php
 session_start();
 @$idMovie = $_GET['id'];
-if ($idMovie == "") {
-  header("Location: index.php");
-  exit();
-}
 include('../lib/tmdb-api.php');
 @$tmdb = new TMDB($conf);
 ?>
@@ -60,6 +56,9 @@ include('../lib/tmdb-api.php');
           include('movies.php');
         }
       } else {
+        if ($idMovie == "") {
+          exit();
+        }
         include('modal.php');
       }
       ?>

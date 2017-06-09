@@ -41,19 +41,24 @@ if (isset($_SESSION["idUsuario"])){
   }
   ?>
   <br>
-  <div id="container" class="container">
+  <div id="container">
     <ul id="comments">
       <?php
       $comentarios = mysqli_query($conn, "SELECT * FROM comentarios WHERE Reply = 0 AND Id_Pelicula = '$idMovie' ORDER BY Id_Comentario DESC");
+      if (mysqli_num_rows($comentarios) == 0) {
+        echo '<div class="alert alert-danger alert-dismissable">';
+        echo '<center><strong>No hay ningun comentario</strong></center>';
+        echo '</div>';
+      }
       while($row = mysqli_fetch_array($comentarios)) {
         $usuario = mysqli_query($conn, "SELECT * FROM usuarios WHERE Id_Usuario = '".$row['Id_Usuario']."'");
         $user = mysqli_fetch_array($usuario);
         ?>
-        <li class="cmmnt">
+        <li class="comment">
           <div class="avatar">
             <img class="img-circle" src="<?php echo $user['Avatar']; ?>" height="55" width="55">
           </div>
-          <div class="cmmnt-content">
+          <div class="comment-content">
             <header>
               <a href="#" class="userlink"><?php echo $user['Usuario']; ?></a> - <span class="pubdate"><?php echo $row['Fecha_Comentario']; ?></span>
             </header>
@@ -75,11 +80,11 @@ if (isset($_SESSION["idUsuario"])){
               $user2 = mysqli_fetch_array($usuario2);
               ?>
               <ul class="replies">
-                <li class="cmmnt">
+                <li class="comment">
                   <div class="avatar">
                     <img class="img-circle" src="<?php echo $user2['Avatar']; ?>" height="55" width="55">
                   </div>
-                  <div class="cmmnt-content">
+                  <div class="comment-content">
                     <header>
                       <a href="#" class="userlink"><?php echo $user2['Usuario']; ?></a> - <span class="pubdate"><?php echo $rep['Fecha_Comentario']; ?></span>
                     </header>
@@ -99,10 +104,10 @@ if (isset($_SESSION["idUsuario"])){
   </div>
   <br>
   <div id="container">
-    <form action="#comentarios" method="post">
+    <form method="post">
       <div class="form-group">
         <label for="comentario">Comentar:</label>
-        <textarea class="form-control" rows="5" name="comentario" id="comentario" required><?php if(isset($_GET['user'])) { ?>@<?php echo $_GET['user']; ?><?php } ?></textarea>
+        <textarea class="form-control" rows="5" name="comentario" id="comentario" required><?php if(isset($_GET['user'])) { ?>@<?php echo $_GET['user'].' '; ?><?php } ?></textarea>
       </div>
       <input class="btn btn-lg btn-sample btn-block" type="submit" id="submit" <?php if (isset($_GET['idC'])) { ?>name="reply"<?php } else { ?>name="comentar"<?php } ?> value="Comentar" />
     </form>
