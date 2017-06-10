@@ -3,7 +3,6 @@ session_start();
 include('../lib/tmdb-api.php');
 @$tmdb = new TMDB($conf);
 if ($_SESSION["usuario"]) {
-
     define("conn", 1);
     include("conexion.php");
 ?>
@@ -71,9 +70,9 @@ if ($_SESSION["usuario"]) {
           <div class="panel-body">
             <div class="col-sm-3">
               <ul class="nav nav-tabs tabs-left">
-                <li class="active"><a href="#configuracion" data-toggle="tab">Configuración</a></li>
-                <li><a href="#seguridad" data-toggle="tab">Seguridad</a></li>
-                <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
+                <li class="configuracion active"><a href="#configuracion" data-toggle="tab">Configuración</a></li>
+                <li class="seguridad"><a href="#seguridad" data-toggle="tab">Seguridad</a></li>
+                <li class="avatar"><a href="#avatar" data-toggle="tab">Avatar</a></li>
               </ul>
             </div>
             <div class="col-sm-9">
@@ -85,7 +84,10 @@ if ($_SESSION["usuario"]) {
                   ?>
                 </div>
                 <div class="tab-pane" id="seguridad">
-
+                  <?php
+                  define("segu", 1);
+                  include('seguridad.php');
+                  ?>
                 </div>
                 <div class="tab-pane" id="avatar">
 

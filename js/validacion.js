@@ -2,6 +2,8 @@ window.onload = iniciar;
 
 function iniciar() {
   $("#submit").click(validar);
+  $("#submitPass").click(validarPass);
+  $("#submitInfo").click(validarInfo);
   $("#usuario").on("click keyup", validarUsuario);
   $("#nombre").on("click keyup", validarNombre);
   $("#apellidos").on("click keyup", validarApellidos);
@@ -88,6 +90,24 @@ function validarPassword2() {
 function validar(e) {
   $("#error").html("");
   if (validarNombre() && validarUsuario() && validarEmail() && validarPassword2() && validarPassword1() && validarApellidos()) {
+    return true;
+  } else {
+    e.preventDefault();
+    return false;
+  }
+}
+function validarPass(e) {
+  $("#error").html("");
+  if (validarPassword2() && validarPassword1()) {
+    return true;
+  } else {
+    e.preventDefault();
+    return false;
+  }
+}
+function validarInfo(e) {
+  $("#error").html("");
+  if (validarNombre() && validarUsuario() && validarEmail() && validarApellidos()) {
     return true;
   } else {
     e.preventDefault();

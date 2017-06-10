@@ -25,6 +25,17 @@ if (isset($_SESSION["idUsuario"])){
       echo '</div>';
     } else {
       echo '<meta http-equiv="refresh" content="0;">';
+      ?>
+      <script type="text/javascript">
+      $('#formComment');
+      $(window).on('beforeunload', function(){
+        $('.actores').removeClass('active');
+        $('.comentarios').addClass('active');
+        $('#actores').removeClass('in active');
+        $('#comentarios').addClass('in active');
+      });
+      </script>
+      <?php
     }
   }
   if (isset($_POST['reply'])) {
@@ -36,7 +47,6 @@ if (isset($_SESSION["idUsuario"])){
       echo '<strong>Ups! Ha ocurrido un error.</strong>';
       echo '</div>';
     } else {
-      echo '<meta http-equiv="refresh" content="0;">';
     }
   }
   ?>
@@ -104,7 +114,7 @@ if (isset($_SESSION["idUsuario"])){
   </div>
   <br>
   <div id="container">
-    <form method="post">
+    <form id="formComment" method="post">
       <div class="form-group">
         <label for="comentario">Comentar:</label>
         <textarea class="form-control" rows="5" name="comentario" id="comentario" required><?php if(isset($_GET['user'])) { ?>@<?php echo $_GET['user'].' '; ?><?php } ?></textarea>

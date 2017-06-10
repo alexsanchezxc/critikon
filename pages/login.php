@@ -82,6 +82,9 @@ session_start();
                       <input name="remember" type="checkbox" value="Remember_Me"/>Recordarme
                     </label>
                   </div>
+                  <div class="form-group">
+                    <a href="validaremail.php">Recuperar contraseña</a>
+                  </div>
                   <input class="btn btn-lg btn-sample btn-block" type="submit" name="Submit" value="Login" />
                   <br>
                   <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-sample btn-block" type="button" name="Volver" value="Volver a Inicio" /></a>

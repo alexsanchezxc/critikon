@@ -1,5 +1,5 @@
 <?php
-if (!defined("conf")) {
+if (!defined("segu")) {
     header("Location: index.php");
     exit();
 }
@@ -9,40 +9,49 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   $row = $result->fetch_array(MYSQLI_ASSOC);
-  if (isset($_REQUEST['Submit'])) {
-    @$nombre = $_POST['nombre'];
-    @$apellidos = $_POST['apellidos'];
-    @$usuario = $_POST['usuario'];
-    @$email = $_POST['email'];
+  if (isset($_REQUEST['SubmitPass'])) {
+    @$passwordAc = $_POST['passwordAc'];
+    @$password1 = $_POST['password1'];
+    @$password2 = $_POST['password2'];
 
-    // NOTE: Comprobamos si el usuario existe
-    $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR Email = '$email'";
-    $result = $conn->query($sql);
+    // NOTE: Comprobamos si la contraseña es correcta
+    $sql1 = "SELECT * FROM usuarios WHERE Id_Usuario = '$username' AND Pass = sha1('$passwordAc')";
+    $result = $conn->query($sql1);
 
     if ($result->num_rows > 0) {
-      $sql = "UPDATE usuarios SET Nombre = '$nombre', Apellidos = '$apellidos', Usuario = '$usuario', Email = '$email' WHERE Id_Usuario = '$username'";
-      if (mysqli_query($conn, $sql)) {
+      $sql2 = "UPDATE usuarios SET Pass = sha1('$password1') WHERE Id_Usuario = '$username'";
+      if (mysqli_query($conn, $sql2)) {
         ?>
         <script type="text/javascript">
-          $('.seguridad').css({pointerEvents: "none"})
+          $('.configuracion').removeClass('active');
+          $('.seguridad').addClass('active');
+          $('#configuracion').removeClass('active');
+          $('#seguridad').addClass('active');
         </script>
         <?php
         echo '<div class="alert alert-success alert-dismissable">';
         echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-        echo '<strong>Los cambios se aplicaron correctamente. </strong>';
+        echo '<strong>Su contraseña se cambió con exito.</strong>';
         echo '</div><br>';
-        echo '<meta http-equiv="refresh" content="0">';
       } else {
         echo '<div class="alert alert-danger alert-dismissable">';
         echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-        echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
+        echo '<strong>Su contraseña no se cambió con exito.</strong>';
         echo '</div><br>';
       }
       mysqli_close($conn);
     } else {
+      ?>
+      <script type="text/javascript">
+        $('.configuracion').removeClass('active');
+        $('.seguridad').addClass('active');
+        $('#configuracion').removeClass('active');
+        $('#seguridad').addClass('active');
+      </script>
+      <?php
       echo '<div class="alert alert-danger alert-dismissable">';
       echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-      echo '<strong>El usuario/email ya existe.</strong>';
+      echo '<strong>La contraseña actual es incorrecta.</strong>';
       echo '</div><br>';
     }
   }
@@ -50,26 +59,18 @@ if ($result->num_rows > 0) {
   <form method="post">
     <fieldset>
       <div class="form-group">
-        Nombre:
-        <input class="form-control" placeholder="Nombre" id="nombre" name="nombre" value="<?php echo $row['Nombre'] ?>" type="text" />
+        <input class="form-control" placeholder="Contraseña Actual" id="passwordAc" name="passwordAc" type="password" required />
         <p class="p-margin"></p>
       </div>
       <div class="form-group">
-        Apellidos:
-        <input class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" value="<?php echo $row['Apellidos'] ?>" type="text" />
+        <input class="form-control" placeholder="Nueva Contraseña" id="password1" name="password1" type="password" />
         <p class="p-margin"></p>
       </div>
       <div class="form-group">
-        Usuario:
-        <input class="form-control" placeholder="Usuario" id="usuario" name="usuario" value="<?php echo $row['Usuario'] ?>" type="text" />
+        <input class="form-control" placeholder="Repita la Contraseña" id="password2" name="password2" type="password" />
         <p class="p-margin"></p>
       </div>
-      <div class="form-group">
-        Email:
-        <input class="form-control" placeholder="Email" id="email" name="email" value="<?php echo $row['Email'] ?>" type="email" />
-        <p class="p-margin"></p>
-      </div>
-      <input class="btn btn-lg btn-sample btn-block" type="submit" id="submitInfo" name="Submit" value="Guardar cambios" />
+      <input class="btn btn-lg btn-sample btn-block" type="submit" id="submitPass" name="SubmitPass" value="Guardar cambios" />
       <br>
       <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-sample btn-block" type="button" name="Volver" value="Volver atrás" /></a>
     </fieldset>
