@@ -71,8 +71,6 @@ if ($result->num_rows > 0) {
         <p class="p-margin"></p>
       </div>
       <input class="btn btn-lg btn-sample btn-block" type="submit" id="submitPass" name="SubmitPass" value="Guardar cambios" />
-      <br>
-      <a style="text-decoration: none;" href="index.php"><input class="btn btn-lg btn-sample btn-block" type="button" name="Volver" value="Volver atrás" /></a>
     </fieldset>
   </form>
   <?php
