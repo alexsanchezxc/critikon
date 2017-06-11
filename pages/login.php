@@ -83,7 +83,7 @@ session_start();
                     </label>
                   </div>
                   <div class="form-group">
-                    <a href="validaremail.php">Recuperar contraseña</a>
+                    <a style="text-decoration: none; color: var(--color);" href="validaremail.php">Recuperar contraseña</a>
                   </div>
                   <input class="btn btn-lg btn-sample btn-block" type="submit" name="Submit" value="Login" />
                   <br>

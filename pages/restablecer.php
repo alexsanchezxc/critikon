@@ -47,12 +47,12 @@ if (!isset($_SESSION['recup'])){
                   echo '<div class="alert alert-success alert-dismissable">';
                   echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                   echo '<strong>Su contraseña se cambió con exito.</strong>';
-                  echo '</div><br>';
+                  echo '</div>';
                 } else {
                   echo '<div class="alert alert-danger alert-dismissable">';
                   echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
                   echo '<strong>Su contraseña no se cambió con exito.</strong>';
-                  echo '</div><br>';
+                  echo '</div>';
                 }
                 mysqli_close($conn);
             }
@@ -64,12 +64,14 @@ if (!isset($_SESSION['recup'])){
               <form action="restablecer.php" method="post">
                 <fieldset>
                   <div class="form-group">
-                    <label for="password">Nueva contraseña:</label>
+                    <label for="password1">Nueva contraseña:</label>
                     <input type="password" class="form-control" id="password1" name="password1" required>
+                    <p class="p-margin"></p>
                   </div>
                   <div class="form-group">
                     <label for="password2">Confirmar contraseña:</label>
                     <input type="password" class="form-control" id="password2" name="password2" required>
+                    <p class="p-margin"></p>
                   </div>
                   <input class="btn btn-lg btn-sample btn-block" type="submit" id="submitPass" name="Submit" value="Cambiar contraseña" />
                   <br/>
