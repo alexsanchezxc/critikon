@@ -90,7 +90,10 @@ if ($_SESSION["usuario"]) {
                   ?>
                 </div>
                 <div class="tab-pane" id="avatar">
-
+                  <?php
+                  define("avatar", 1);
+                  include('avatar.php');
+                  ?>
                 </div>
               </div>
             </div>
