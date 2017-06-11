@@ -1,4 +1,3 @@
-<br>
 <?php
 if (isset($_SESSION["idUsuario"])){
   define("conn", 1);
@@ -24,17 +23,12 @@ if (isset($_SESSION["idUsuario"])){
       echo '<strong>Ups! Ha ocurrido un error.</strong>';
       echo '</div>';
     } else {
-      echo '<meta http-equiv="refresh" content="0;">';
       ?>
       <script type="text/javascript">
-      $('#formComment').submit(function (e) {
-        e.preventDefault();
-      });
-      $(window).on('beforeunload', function(){
-        $('.actores').removeClass('active');
-        $('.comentarios').addClass('active');
-        $('#actores').removeClass('in active');
-        $('#comentarios').addClass('in active');
+      $(window).on('load', function(){
+        $('html, body').animate({
+          scrollTop: $("#container").offset().top
+        }, 0);
       });
       </script>
       <?php
@@ -49,17 +43,12 @@ if (isset($_SESSION["idUsuario"])){
       echo '<strong>Ups! Ha ocurrido un error.</strong>';
       echo '</div>';
     } else {
-      echo '<meta http-equiv="refresh" content="0;">';
       ?>
       <script type="text/javascript">
-      $('#formComment').submit(function (e) {
-        e.preventDefault();
-      });
-      $(window).on('beforeunload', function(){
-        $('.actores').removeClass('active');
-        $('.comentarios').addClass('active');
-        $('#actores').removeClass('in active');
-        $('#comentarios').addClass('in active');
+      $(window).on('load', function(){
+        $('html, body').animate({
+          scrollTop: $("#container").offset().top
+        }, 0);
       });
       </script>
       <?php
@@ -92,7 +81,7 @@ if (isset($_SESSION["idUsuario"])){
               <?php echo $row['Comentario']; ?>
             </p>
             <span>
-              <a href="movie.php?id=<?php echo $idMovie ?>&user=<?php echo $user['Usuario']; ?>&idC=<?php echo $row['Id_Comentario']; ?>">
+              <a id="responder" href="movie.php?id=<?php echo $idMovie ?>&user=<?php echo $user['Usuario']; ?>&idC=<?php echo $row['Id_Comentario']; ?>#comentario">
                 Responder
               </a>
             </span>
@@ -130,7 +119,7 @@ if (isset($_SESSION["idUsuario"])){
   </div>
   <br>
   <div id="container">
-    <form id="formComment" method="post">
+    <form method="post">
       <div class="form-group">
         <label for="comentario">Comentar:</label>
         <textarea class="form-control" rows="5" name="comentario" id="comentario" required><?php if(isset($_GET['user'])) { ?>@<?php echo $_GET['user'].' '; ?><?php } ?></textarea>

@@ -325,6 +325,10 @@ body {
   text-shadow: 0 0 2.5px black, 0 0 5px black;
 }
 
+.thumbnail #comments p {
+  text-shadow: inherit;
+}
+
 .thumbnail ul li {
   text-shadow: 0 0 2.5px black, 0 0 5px black;
 }

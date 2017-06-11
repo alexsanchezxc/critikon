@@ -13,7 +13,7 @@ include('../lib/tmdb-api.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>CRITIKON - Inicio</title>
+  <title>Peliculas</title>
   <!-- NOTE: Bootstrap Core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- NOTE: MetisMenu CSS -->

@@ -74,20 +74,20 @@ if (!defined("nav")){
           <li>
             <a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
           </li>
-          <li>
+          <li class="active">
             <a href="#"><i class="fa fa-film fa-fw"></i> Películas<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
               <li>
-                <a href="upcomingMovies.php"><i class="fa fa-calendar fa-fw"></i> Próximamente</a>
+                <a href="upcomingMovies.php?page=1"><i class="fa fa-calendar fa-fw"></i> Próximamente</a>
               </li>
               <li>
-                <a href="topratedMovies.php"><i class="fa fa-star fa-fw"></i> Mejor Valoradas</a>
+                <a href="topratedMovies.php?page=1"><i class="fa fa-star fa-fw"></i> Mejor Valoradas</a>
               </li>
               <li>
-                <a href="popularMovies.php"><i class="glyphicon glyphicon-fire"></i> Popular</a>
+                <a href="popularMovies.php?page=1"><i class="glyphicon glyphicon-fire"></i> Popular</a>
               </li>
               <li>
-                <a href="playingMovies.php"><i class="fa fa-play fa-fw"></i> En Cartelera Hoy</a>
+                <a href="playingMovies.php?page=1"><i class="fa fa-play fa-fw"></i> En Cartelera Hoy</a>
               </li>
             </ul>
             <!-- /.nav-second-level -->

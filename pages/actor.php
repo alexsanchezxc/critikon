@@ -3,6 +3,7 @@ if (!defined("actor")){
     header("Location: index.php");
     exit();
 }
+echo '<div class="row" style="padding: 0 15px 0 15px;">';
 echo '<div class="col-md-6">';
 echo '<div class="table-responsive">';
 echo '<table class="table">';
@@ -53,6 +54,7 @@ for ($i=1; $i < count($credits['cast']);) {
 }
 echo '</tbody>';
 echo '</table>';
+echo '</div>';
 echo '</div>';
 echo '</div>';
 ?>
