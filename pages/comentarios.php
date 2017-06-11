@@ -70,21 +70,23 @@ if (isset($_SESSION["idUsuario"])){
         $user = mysqli_fetch_array($usuario);
         ?>
         <li class="comment">
-          <div class="avatar">
-            <img class="img-circle" src="<?php echo $user['Avatar']; ?>" height="55" width="55">
-          </div>
-          <div class="comment-content">
-            <header>
-              <a href="#" class="userlink"><?php echo $user['Usuario']; ?></a> - <span class="pubdate"><?php echo $row['Fecha_Comentario']; ?></span>
-            </header>
-            <p>
-              <?php echo $row['Comentario']; ?>
-            </p>
-            <span>
-              <a id="responder" href="movie.php?id=<?php echo $idMovie ?>&user=<?php echo $user['Usuario']; ?>&idC=<?php echo $row['Id_Comentario']; ?>#comentario">
-                Responder
-              </a>
-            </span>
+          <div class="row">
+            <div class="col-md-1 avatar">
+              <img class="img-circle" src="../assets/avatares/<?php echo $user['Avatar']; ?>" height="75" width="75">
+            </div>
+            <div class="col-md-11 comment-content">
+              <header>
+                <a href="#" class="userlink"><?php echo $user['Usuario']; ?></a> - <span class="pubdate"><?php echo $row['Fecha_Comentario']; ?></span>
+              </header>
+              <p class="p-margin">
+                  <?php echo $row['Comentario']; ?>
+              </p>
+              <span>
+                <a id="responder" href="movie.php?id=<?php echo $idMovie ?>&user=<?php echo $user['Usuario']; ?>&idC=<?php echo $row['Id_Comentario']; ?>#comentario">
+                  Responder
+                </a>
+              </span>
+            </div>
           </div>
           <?php
           $contar = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."'"));
@@ -96,16 +98,18 @@ if (isset($_SESSION["idUsuario"])){
               ?>
               <ul class="replies">
                 <li class="comment">
-                  <div class="avatar">
-                    <img class="img-circle" src="<?php echo $user2['Avatar']; ?>" height="55" width="55">
-                  </div>
-                  <div class="comment-content">
-                    <header>
-                      <a href="#" class="userlink"><?php echo $user2['Usuario']; ?></a> - <span class="pubdate"><?php echo $rep['Fecha_Comentario']; ?></span>
-                    </header>
-                    <p>
-                      <?php echo $rep['Comentario']; ?>
-                    </p>
+                  <div class="row">
+                    <div class="col-md-1 avatar">
+                      <img class="img-circle" src="../assets/avatares/<?php echo $user2['Avatar']; ?>" height="75" width="75">
+                    </div>
+                    <div class="col-md-11 comment-content">
+                      <header>
+                        <a href="#" class="userlink"><?php echo $user2['Usuario']; ?></a> - <span class="pubdate"><?php echo $rep['Fecha_Comentario']; ?></span>
+                      </header>
+                      <p class="p-margin">
+                        <?php echo $rep['Comentario']; ?>
+                      </p>
+                    </div>
                   </div>
                 </li>
               </ul>

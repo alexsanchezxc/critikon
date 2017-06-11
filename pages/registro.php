@@ -44,7 +44,7 @@ session_start();
               $password2 = $_POST['password2'];
               $email = $_POST['email'];
               $date = date('Y-m-d');
-              $avatar = "../assets/avatar.png";
+              $avatar = "../assets/avatares/avatar.png";
               // NOTE: Comprobamos si el usuario existe
               $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' OR Email = '$email'";
               $result = $conn->query($sql);

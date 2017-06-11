@@ -1,70 +1,106 @@
 <?php
 if (!defined("avatar")) {
-    header("Location: index.php");
-    exit();
+  header("Location: index.php");
+  exit();
 }
-$result = $conn->query("SELECT * FROM usuarios");
+$username = $_SESSION["idUsuario"];
+$directorio = "../assets/avatares/";
+$result = $conn->query("SELECT * FROM usuarios WHERE Id_Usuario = '$username'");
 while ($row=$result->fetch_array(MYSQLI_ASSOC)){
-    /*almacenamos el nombre de la ruta en la variable $ruta_img*/
-    $ruta_img = $row['Avatar'];
+  $ruta_img = $row['Avatar'];
 }
 if (isset($_POST['enviar'])){
-    // Recibo los datos de la imagen
-    $nombre_img = $_FILES['imagen']['name'];
-    $tipo = $_FILES['imagen']['type'];
-    $tamano = $_FILES['imagen']['size'];
+  $nombre_img = $_FILES['imagen']['name'];
+  $tipo = $_FILES['imagen']['type'];
+  $tamano = $_FILES['imagen']['size'];
 
-    //Si existe imagen y tiene un tamaño correcto
-    if (($nombre_img == !NULL) && ($_FILES['imagen']['size'] <= 200000)){
-       //indicamos los formatos que permitimos subir a nuestro servidor
-       if (($_FILES["imagen"]["type"] == "image/gif")
-       || ($_FILES["imagen"]["type"] == "image/jpeg")
-       || ($_FILES["imagen"]["type"] == "image/jpg")
-       || ($_FILES["imagen"]["type"] == "image/png")) {
-          // Ruta donde se guardarán las imágenes que subamos
-          $directorio = "../avatares/";
-          // Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
-          move_uploaded_file($_FILES['imagen']['tmp_name'],$directorio.$nombre_img);
+  if (($nombre_img == !NULL) && ($_FILES['imagen']['size'] <= 1000000)){
+    if (($_FILES["imagen"]["type"] == "image/gif")
+    || ($_FILES["imagen"]["type"] == "image/jpeg")
+    || ($_FILES["imagen"]["type"] == "image/jpg")
+    || ($_FILES["imagen"]["type"] == "image/png")) {
 
-          /* en pasos anteriores deberíamos tener una conexión abierta a nuestra base de
-          datos para ejecutar nuestra sentencia SQL */
+      move_uploaded_file($_FILES['imagen']['tmp_name'],$directorio.$nombre_img);
 
-          /* con la siguiente sentencia le asignamos a nuestro campo de la tabla ruta_imagen
-          el nombre de nuestra imagen */
-
-          $sql = "UPDATE usuarios SET ruta_imagen = '$nombre_img' ";
-          if ($conn->query($sql)) {
-            echo '<div class="alert alert-success alert-dismissable">';
-            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-            echo '<strong>Se ha subido correctamente la imágen.</strong>';
-            echo '</div><br>';
-            echo '<meta http-equiv="refresh" content="0">';
-          } else {
-            echo '<div class="alert alert-danger alert-dismissable">';
-            echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
-            echo '<strong>Ups! Ha ocurrido un error en el registro.</strong>';
-            echo '</div>';
-          }
-        } else {
-           //si no cumple con el formato
-           echo "No se puede subir una imagen con ese formato ";
-        }
+      $sql = "UPDATE usuarios SET Avatar = '$nombre_img' WHERE Id_Usuario = '$username'";
+      if ($conn->query($sql)) {
+        ?>
+        <script type="text/javascript">
+          $('.configuracion').removeClass('active');
+          $('.avatar').addClass('active');
+          $('#configuracion').removeClass('active');
+          $('#avatar').addClass('active');
+        </script>
+        <?php
+        echo '<div class="alert alert-success alert-dismissable">';
+        echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+        echo '<strong>Se ha subido correctamente la imagen.</strong> Recargando...';
+        echo '</div><br>';
+        echo '<meta http-equiv="refresh" content="1">';
+      } else {
+        ?>
+        <script type="text/javascript">
+          $('.configuracion').removeClass('active');
+          $('.avatar').addClass('active');
+          $('#configuracion').removeClass('active');
+          $('#avatar').addClass('active');
+        </script>
+        <?php
+        echo '<div class="alert alert-danger alert-dismissable">';
+        echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+        echo '<strong>Ups! Ha ocurrido un error en la subida.</strong>';
+        echo '</div><br>';
+      }
     } else {
-       //si existe la variable pero se pasa del tamaño permitido
-       if($nombre_img == !NULL) echo "La imagen es demasiado grande ";
+      ?>
+      <script type="text/javascript">
+        $('.configuracion').removeClass('active');
+        $('.avatar').addClass('active');
+        $('#configuracion').removeClass('active');
+        $('#avatar').addClass('active');
+      </script>
+      <?php
+      echo '<div class="alert alert-danger alert-dismissable">';
+      echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+      echo '<strong>No se puede subir una imagen con ese formato.</strong>';
+      echo '</div><br>';
     }
+  } else {
+    if($nombre_img == !NULL) {
+      ?>
+      <script type="text/javascript">
+        $('.configuracion').removeClass('active');
+        $('.avatar').addClass('active');
+        $('#configuracion').removeClass('active');
+        $('#avatar').addClass('active');
+      </script>
+      <?php
+      echo '<div class="alert alert-danger alert-dismissable">';
+      echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+      echo '<strong>La imagen es demasiado grande.</strong>';
+      echo '</div><br>';
+    }
+  }
 }
 mysqli_close($conn);
 ?>
-<div>
-   <img src="<?php echo $ruta_img; ?>" alt="" />
+<div class="col-md-3">
+  <img id="avatarPerfil" class="poster" src="../assets/avatarI.png"/>
 </div>
-<form method="post">
-  <fieldset>
-    <div class="form-group">
-      <label for="imagen">Imagen:</label>
-      <input id="imagen" name="imagen" size="30" type="file" />
-    </div>
-    <input class="btn btn-lg btn-sample btn-block" type="submit" name="enviar" id="enviar" value="Subir Avatar" />
-  </fieldset>
-</form>
+<div class="col-md-9">
+  <form method="post" enctype="multipart/form-data">
+    <fieldset>
+      <div class="form-group">
+        <label for="imagen">Imagen:</label>
+        <input id="imagen" name="imagen" type="file" />
+      </div>
+      <input class="btn btn-lg btn-sample btn-block" type="submit" name="enviar" id="enviar" value="Subir Avatar" />
+    </fieldset>
+  </form>
+</div>
+<style media="screen">
+
+#avatarPerfil {
+  background-image: url('<?php echo $directorio.$ruta_img ?>');
+}
+</style>
