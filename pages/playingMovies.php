@@ -71,18 +71,20 @@ include('../lib/tmdb-api.php');
         foreach($movies as $movie){
           include('movies.php');
         }
+        ?>
+        <center>
+          <ul class="pagination pagination-lg">
+              <li id="page1" class="active"><a href="playingMovies.php?page=1">1</a></li>
+              <li id="page2" ><a href="playingMovies.php?page=2">2</a></li>
+              <li id="page3" ><a href="playingMovies.php?page=3">3</a></li>
+              <li id="page4" ><a href="playingMovies.php?page=4">4</a></li>
+              <li id="page5" ><a href="playingMovies.php?page=5">5</a></li>
+          </ul>
+        </center>
+        <?php
       }
       ?>
     </div>
-    <center>
-      <ul class="pagination pagination-lg">
-          <li id="page1" class="active"><a href="playingMovies.php?page=1">1</a></li>
-          <li id="page2" ><a href="playingMovies.php?page=2">2</a></li>
-          <li id="page3" ><a href="playingMovies.php?page=3">3</a></li>
-          <li id="page4" ><a href="playingMovies.php?page=4">4</a></li>
-          <li id="page5" ><a href="playingMovies.php?page=5">5</a></li>
-      </ul>
-    </center>
   </div>
   <!-- NOTE: #wrapper -->
   <script type="text/javascript">
