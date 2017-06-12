@@ -1,7 +1,5 @@
 <?php
 if (isset($_SESSION["idUsuario"])){
-  define("conn", 1);
-  include("conexion.php");
   $username = $_SESSION["idUsuario"];
   // NOTE: Guardamos la id de la pelicula en la base de datos
   $getMovie = $tmdb->getMovie($idMovie);
@@ -12,6 +10,10 @@ if (isset($_SESSION["idUsuario"])){
     echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
     echo '<strong>Ups! Ha ocurrido un error.</strong>';
     echo '</div>';
+  }
+
+  if (@$_GET['idCb'] > 0) {
+      mysqli_query($conn, "DELETE FROM comentarios WHERE Id_Comentario = '".$_GET['idCb']."'");
   }
 
   if (isset($_POST['comentar'])) {
@@ -67,6 +69,16 @@ if (isset($_SESSION["idUsuario"])){
         echo '<center><strong>No hay ningun comentario</strong></center>';
         echo '</div>';
       }
+      if (isset($_POST['eliminar'])) {
+        ?>
+        <script type="text/javascript">
+              $("button").click(function () {
+                  var com = $(this).attr("id");
+                  <?php mysqli_query($conn, "DELETE FROM comentarios WHERE Id_Comentario = ''"); ?>
+              });
+        </script>
+        <?php
+      }
       while($row = mysqli_fetch_array($comentarios)) {
         $usuario = mysqli_query($conn, "SELECT * FROM usuarios WHERE Id_Usuario = '".$row['Id_Usuario']."'");
         $user = mysqli_fetch_array($usuario);
@@ -89,6 +101,13 @@ if (isset($_SESSION["idUsuario"])){
                 </a>
               </span>
             </div>
+            <?php
+            if ($username == $user["Id_Usuario"]) {
+            ?>
+                <a style="float: right;top: -10px;right: 10px;" class="glyphicon glyphicon-remove" id="responder" href="movie.php?id=<?php echo $idMovie ?>&idCb=<?php echo $row['Id_Comentario']; ?>#comentario"></a>
+            <?php
+            }
+            ?>
           </div>
           <?php
           $contar = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM comentarios WHERE Id_Pelicula = '$idMovie' AND Reply = '".$row['Id_Comentario']."'"));
@@ -112,6 +131,13 @@ if (isset($_SESSION["idUsuario"])){
                         <?php echo $rep['Comentario']; ?>
                       </p>
                     </div>
+                    <?php
+                    if ($username == $user["Id_Usuario"]) {
+                    ?>
+                        <a style="float: right;top: -10px;right: 10px;" class="glyphicon glyphicon-remove" id="responder" href="movie.php?id=<?php echo $idMovie ?>&idCb=<?php echo $rep['Id_Comentario']; ?>#comentario"></a>
+                    <?php
+                    }
+                    ?>
                   </div>
                 </li>
               </ul>

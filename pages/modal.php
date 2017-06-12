@@ -4,6 +4,8 @@ if (!defined("modal")){
     exit();
 }
 $getMovie = $tmdb->getMovie($idMovie);
+define("conn", 1);
+include("conexion.php");
 echo '<br>';
 echo '<div class="container-fluid thumbnail">';
 echo '<div id="backdrop">';
@@ -29,6 +31,9 @@ foreach ($getMovie->getGenres() as $Genre) {
 echo '</ul>';
 echo '</div>';
 echo '<div class="col-md-4">';
+echo '<h1 class="film-header">Votos</h1>';
+define("votos", 1);
+include('votos.php');
 echo '</div>';
 echo '</div>';
 echo '</div>';
