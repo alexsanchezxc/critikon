@@ -17,14 +17,14 @@ if (isset($_SESSION["idUsuario"])){
       <div class="form-group">
         <select name="voto" id="star-rating">
           <option value="">Selecciona tu voto</option>
-          <option value="5">Excellent</option>
-          <option value="4">Very Good</option>
-          <option value="3">Average</option>
-          <option value="2">Poor</option>
+          <option value="5">Excelente</option>
+          <option value="4">Muy buena</option>
+          <option value="3">Buena</option>
+          <option value="2">Mediocre</option>
           <option value="1">Terrible</option>
         </select>
       </div>
-      <input class="btn btn-small btn-sample btn-block" type="submit" id="votar" name="votar" value="Votar" />
+      <input class="btn btn-lg btn-sample btn-block" type="submit" id="votar" name="votar" value="Votar" />
     </fieldset>
   </form>
   <br>

@@ -28,7 +28,7 @@
 
 		defaults: {
 			clearable  : true,
-			initialText: "Click to Rate",
+			initialText: "Puntuación",
 			onClick    : null,
 			showText   : true,
 		},

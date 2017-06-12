@@ -6,28 +6,27 @@ if (!defined("modal")){
 $getMovie = $tmdb->getMovie($idMovie);
 define("conn", 1);
 include("conexion.php");
-$numv = mysqli_query($conn, "SELECT Voto FROM votos");
-$sumv = mysqli_query($conn, "SELECT SUM(Voto) as total FROM votos");
+$numv = mysqli_query($conn, "SELECT Voto FROM votos WHERE Id_Pelicula = '$idMovie'");
+$sumv = mysqli_query($conn, "SELECT SUM(Voto) as total FROM votos WHERE Id_Pelicula = '$idMovie'");
 $row = mysqli_fetch_array($sumv, MYSQL_ASSOC);
 $total = $row["total"];
-
 $vnum = mysqli_num_rows($numv);
-
 $votos = $total / $vnum;
-
 echo '<br>';
 echo '<div class="container-fluid thumbnail">';
 echo '<div id="backdrop">';
-echo '<div class="row">';
+echo '<div class="row informacion">';
 echo '<div class="col-md-4">';
 echo '<img class="img-responsive poster" src="../assets/poster.png" alt="'.$getMovie->getTitle().'">';
+echo '<h1 class="film-header">Votos</h1>';
+define("votos", 1);
+include('votos.php');
 echo '</div>';
 echo '<div class="col-md-8">';
-echo '<h1 class="film-header" data-toggle="tooltip" data-placement="bottom" title="'.$getMovie->getTitle().'">'.$getMovie->getTitle().'</h1>';
-echo '<p class="flex">';
-echo '<span><strong>&nbsp<i class="fa fa-calendar fa-fw"></i>'.$getMovie->get('release_date').'</strong></span>';
-echo '<span><strong><i class="fa fa-star fa-fw"></i>'.$getMovie->getVoteAverage().'&nbsp</strong></span>';
-echo '<span><strong><i class="fa fa-star fa-fw"></i>'.$votos.'&nbsp</strong></span>';
+echo '<h1 class="film-header" style="margin: 0;" data-toggle="tooltip" data-placement="bottom" title="'.$getMovie->getTitle().'"><strong>'.$getMovie->getTitle().'</strong></h1>';
+echo '<p class="p-margin">';
+echo '<span style="font-size: 27.5px;"><strong>IMDB<i class="fa fa-star fa-fw"></i>'.$getMovie->getVoteAverage().'</strong></span><br>';
+echo '<span style="font-size: 27.5px;"><strong style="color: #FFB900;">CRITIKON<i class="fa fa-star fa-fw"></i>'.$votos.'</strong></span>';
 echo '</p>';
 echo '<p>'.$getMovie->get('overview').'</p>';
 echo '</div>';
@@ -41,9 +40,15 @@ foreach ($getMovie->getGenres() as $Genre) {
 echo '</ul>';
 echo '</div>';
 echo '<div class="col-md-4">';
-echo '<h1 class="film-header">Votos</h1>';
-define("votos", 1);
-include('votos.php');
+echo '<h1 class="film-header">Ficha</h1>';
+echo '<ul>';
+echo '<li>Idiomas hablados: ';
+$Lang = $getMovie->get('spoken_languages');
+for ($i=0; $i < count($Lang); $i++) {
+  echo $Lang[$i]['name'];
+}
+echo '</li>';
+echo '</ul>';
 echo '</div>';
 echo '</div>';
 echo '</div>';
