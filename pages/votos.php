@@ -12,6 +12,7 @@ if (isset($_SESSION["idUsuario"])){
     echo '</div>';
   }
   ?>
+  <h1 class="film-header">Votos</h1>
   <form method="post">
     <fieldset>
       <div class="form-group">

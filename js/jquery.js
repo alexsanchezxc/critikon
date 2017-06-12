@@ -72,8 +72,10 @@ $(document).ready(function() {
     if (win.width() <= 375) {
       $('.movieList').addClass('col-xs-12');
       $('.movieList').removeClass('col-xs-6');
+      $('#logo').css('text-align','center');
     } else {
       $('.movieList').addClass('col-xs-6');
+      $('#logo').css('text-align','inherit');
       $('.movieList').removeClass('col-xs-12');
     }
   }).resize();

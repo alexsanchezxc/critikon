@@ -57,8 +57,8 @@ if (!defined("nav")){
           <!-- NOTE: dropdown -->
         </ul>
         <ul class="nav" id="side-menu">
-          <li>
-            <img class="img-responsive" src="">
+          <li id="logo">
+            <center><img class="img-responsive" src="../assets/logo-mini.png"></center>
           </li>
           <li class="sidebar-search">
             <form method="get" class="input-group custom-search-form" autocomplete="off">
