@@ -18,6 +18,8 @@ include('../lib/tmdb-api.php');
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- NOTE: MetisMenu CSS -->
   <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+  <!-- NOTE: Star-Rating CSS -->
+  <link href="../vendor/star-rating/star-rating.css" rel="stylesheet">
   <!-- NOTE: Custom CSS -->
   <link id="pageColor" href="../css/white.css" rel="stylesheet">
   <link href="../css/master.css" rel="stylesheet">

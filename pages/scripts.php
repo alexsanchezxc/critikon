@@ -8,6 +8,8 @@ if (!defined("scripts")){
 <script src="../vendor/jquery/jquery.min.js"></script>
 <!-- NOTE: Bootstrap Core JavaScript -->
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- NOTE: Star-Rating Plugin JavaScript -->
+<script src="../vendor/star-rating/star-rating.js"></script>
 <!-- NOTE: Metis Menu Plugin JavaScript -->
 <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 <!-- NOTE: Custom Theme JavaScript -->
