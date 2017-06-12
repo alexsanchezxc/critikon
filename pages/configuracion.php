@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
     }
   }
   ?>
-  <form method="post">
+  <form method="post" style="color: var(--color)">
     <fieldset>
       <div class="form-group">
         Nombre:

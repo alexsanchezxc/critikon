@@ -88,7 +88,7 @@ mysqli_close($conn);
   <img id="avatarPerfil" class="poster" src="../assets/avatarI.png"/>
 </div>
 <div class="col-md-9">
-  <form method="post" enctype="multipart/form-data">
+  <form method="post" style="color: var(--color)" enctype="multipart/form-data">
     <fieldset>
       <div class="form-group">
         <label for="imagen">Imagen:</label>

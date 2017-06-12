@@ -56,6 +56,8 @@ if (isset($_SESSION["idUsuario"])){
   }
   ?>
   <br>
+  <center><h1 style="color: var(--color)">Comentarios</h1></center>
+  <br>
   <div id="container">
     <ul id="comments">
       <?php

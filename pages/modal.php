@@ -55,7 +55,7 @@ echo '<center><iframe id="trailers" src="https://www.youtube.com/embed/'.$traile
 echo '</div>';
 echo '</div>';
 echo '</div>';
-echo '<div class="row" style="padding: 0 15px 0 15px;">';
+echo '<div class="row" style="padding: 0 15px 0 15px; box-shadow: inset 0 25px 25px -25px rgba(0, 0, 0, 0.75);">';
 define("comentarios", 1);
 include('comentarios.php');
 echo '</div>';
