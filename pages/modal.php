@@ -6,6 +6,15 @@ if (!defined("modal")){
 $getMovie = $tmdb->getMovie($idMovie);
 define("conn", 1);
 include("conexion.php");
+$numv = mysqli_query($conn, "SELECT Voto FROM votos");
+$sumv = mysqli_query($conn, "SELECT SUM(Voto) as total FROM votos");
+$row = mysqli_fetch_array($sumv, MYSQL_ASSOC);
+$total = $row["total"];
+
+$vnum = mysqli_num_rows($numv);
+
+$votos = $total / $vnum;
+
 echo '<br>';
 echo '<div class="container-fluid thumbnail">';
 echo '<div id="backdrop">';
@@ -18,6 +27,7 @@ echo '<h1 class="film-header" data-toggle="tooltip" data-placement="bottom" titl
 echo '<p class="flex">';
 echo '<span><strong>&nbsp<i class="fa fa-calendar fa-fw"></i>'.$getMovie->get('release_date').'</strong></span>';
 echo '<span><strong><i class="fa fa-star fa-fw"></i>'.$getMovie->getVoteAverage().'&nbsp</strong></span>';
+echo '<span><strong><i class="fa fa-star fa-fw"></i>'.$votos.'&nbsp</strong></span>';
 echo '</p>';
 echo '<p>'.$getMovie->get('overview').'</p>';
 echo '</div>';
