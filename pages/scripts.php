@@ -4,6 +4,8 @@ if (!defined("scripts")){
     exit();
 }
 ?>
+<link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
 <!-- NOTE: jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 <!-- NOTE: Bootstrap Core JavaScript -->
